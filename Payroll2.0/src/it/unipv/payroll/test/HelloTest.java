@@ -21,9 +21,7 @@ public class HelloTest extends ArquillianTest {
 	@Test
 	public void testAdddingEmployee(){
 		
-		Employee employee = new Employee();
-		employee.setName("Valerio");
-		employee.setSurname("Migliorini");
+		Employee employee = new Employee("Valerio","Albini");
 		
 		e_dao.add(employee);
 		
@@ -32,7 +30,7 @@ public class HelloTest extends ArquillianTest {
 		boolean test = false;
 		
 		for (Employee employee2 : employees) {
-			if (employee2.getName().equals("Valerio") && employee2.getSurname().equals("Migliorini")) {
+			if (employee2.getName().equals("Valerio") && employee2.getSurname().equals("Albini")) {
 				test=true;
 			}
 		}

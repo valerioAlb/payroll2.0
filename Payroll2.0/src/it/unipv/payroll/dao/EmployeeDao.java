@@ -22,6 +22,11 @@ public class EmployeeDao {
 		List<Employee> employees = em.createQuery("select p from Employee p", Employee.class).getResultList();
 		return employees;
 	}
+
+	public void cleanTable() {
+		em.createQuery("DELETE FROM Employee").executeUpdate();
+		
+	}
 	
 
 }
