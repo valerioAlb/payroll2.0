@@ -1,11 +1,12 @@
 package it.unipv.payroll.test;
 
+import java.util.List;
+
 import it.unipv.payroll.dao.CleanerDao;
 import it.unipv.payroll.dao.EmployeeDao;
 import it.unipv.payroll.model.Employee;
+import it.unipv.payroll.model.FlatSalaryEmployee;
 import it.unipv.payroll.model.HourlyEmployee;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -16,7 +17,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
-public class HourlyEmployeeTest extends ArquillianTest{
+public class DeleteEmployeeTest extends ArquillianTest {
 	
 	@Inject
 	CleanerDao cl_dao;
@@ -30,30 +31,41 @@ public class HourlyEmployeeTest extends ArquillianTest{
 	}
 	
 	@Test
-	public void testHourlyEmployee(){
+	public void testDeleteEmployee(){
 		
 		Employee hourlyEmployee1 = new HourlyEmployee("Rocco","Papaleo",12);
 		
-		Employee hourlyEmployee2 = new HourlyEmployee("Dado","Papaleo",2);
+		Employee hourlyEmployee2 = new HourlyEmployee("Magikarp","Pokè",2);
 		
-		Employee hourlyEmployee3 = new HourlyEmployee("Fede","Papaleo",16);
+		Employee hourlyEmployee3 = new HourlyEmployee("Tavernello","Cartoncino",16);
+		
+		Employee flatEmployee1 = new FlatSalaryEmployee("Fra","Cappella",12,0.2);
+		
+		Employee flatEmployee2 = new FlatSalaryEmployee("Dado","Papaleo",2,0.4);
 		
 		e_dao.add(hourlyEmployee1);
 		e_dao.add(hourlyEmployee2);
 		e_dao.add(hourlyEmployee3);
+		e_dao.add(flatEmployee1);
+		e_dao.add(flatEmployee2);
+		
+		cl_dao.removeEmployee(hourlyEmployee3.getEmpId());
+		
 		
 		List<Employee> employees = e_dao.findAll();
 		
-		boolean test = false;
+		boolean test = true;
 		
 		for (Employee employee2 : employees) {
-			if (employee2.getName().equals("Rocco") && employee2.getSurname().equals("Papaleo")) {
-				test=true;
+			if (employee2.getEmpId() == hourlyEmployee3.getEmpId()) {
+				test=false;
 			}
 		}
 		
-		Assert.assertTrue("L' oggetto non è stato aggiunto", test);
+		Assert.assertTrue("L' oggetto non è stato rimosso", test);
 		
 	}
+	
+	
 
 }

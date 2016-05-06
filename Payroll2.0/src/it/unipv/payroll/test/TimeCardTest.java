@@ -1,5 +1,6 @@
 package it.unipv.payroll.test;
 
+import it.unipv.payroll.dao.CleanerDao;
 import it.unipv.payroll.dao.EmployeeDao;
 import it.unipv.payroll.dao.TimeCardDao;
 import it.unipv.payroll.model.Employee;
@@ -26,11 +27,13 @@ public class TimeCardTest extends ArquillianTest {
 	@Inject
 	TimeCardDao time_dao;
 	
+	@Inject
+	CleanerDao cl_dao;
+	
 	@Before
 	public void cleanup() {
 		
-		time_dao.cleanTable();
-		e_dao.cleanTable();
+		//cl_dao.cleanAll();
 		
 	}
 	
@@ -56,7 +59,7 @@ public class TimeCardTest extends ArquillianTest {
 		time_dao.add(timeCard2);
 		time_dao.add(timeCard3);
 		
-		List<TimeCard> timeCards = time_dao.findEmployee(hourlyEmployee1.getEmpId());
+		List<TimeCard> timeCards = time_dao.findTimeCardsByEmployee(hourlyEmployee1.getEmpId());
 		
 		Employee testEmployee = e_dao.findEmployeeById(timeCards.get(0).getHourly_employee().getEmpId());
 		
@@ -67,12 +70,6 @@ public class TimeCardTest extends ArquillianTest {
 		}
 		
 		Assert.assertTrue("L' oggetto non è presente", test);
-		
-		
-		
-		
-		
-		
 		
 		
 

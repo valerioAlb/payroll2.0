@@ -23,7 +23,7 @@ public class TimeCardDao {
 		return timeCards;
 	}
 	
-	public List<TimeCard> findEmployee(int EmpId) {
+	public List<TimeCard> findTimeCardsByEmployee(int EmpId) {
 		List<TimeCard> timeCards = em.createQuery("select p from TimeCard p where EmpId = "+EmpId, TimeCard.class).getResultList();
 		return timeCards;
 	}

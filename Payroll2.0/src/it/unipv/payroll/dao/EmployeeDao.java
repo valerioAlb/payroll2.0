@@ -24,6 +24,7 @@ public class EmployeeDao {
 	}
 
 	public void cleanTable() {
+		
 		em.createQuery("DELETE FROM Employee").executeUpdate();
 		
 	}
