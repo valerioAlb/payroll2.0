@@ -1,6 +1,5 @@
 package it.unipv.payroll.model;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
@@ -43,9 +42,6 @@ public class HourlyEmployee extends Employee{
 		this.hourlySalary = hourlySalary;
 	}
 	
-	public void addTimeCard(Date date,float hours){
-		this.timeCards.add(new TimeCard(date, hours));
-	}
 	
 	
 	

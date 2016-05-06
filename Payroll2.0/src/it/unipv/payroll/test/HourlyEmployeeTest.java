@@ -30,11 +30,11 @@ public class HourlyEmployeeTest extends ArquillianTest{
 	@Test
 	public void testHourlyEmployee(){
 		
-		HourlyEmployee hourlyEmployee1 = new HourlyEmployee("Rocco","Papaleo",12);
+		Employee hourlyEmployee1 = new HourlyEmployee("Rocco","Papaleo",12);
 		
-		HourlyEmployee hourlyEmployee2 = new HourlyEmployee("Dado","Papaleo",2);
+		Employee hourlyEmployee2 = new HourlyEmployee("Dado","Papaleo",2);
 		
-		HourlyEmployee hourlyEmployee3 = new HourlyEmployee("Fede","Papaleo",16);
+		Employee hourlyEmployee3 = new HourlyEmployee("Fede","Papaleo",16);
 		
 		e_dao.add(hourlyEmployee1);
 		e_dao.add(hourlyEmployee2);
