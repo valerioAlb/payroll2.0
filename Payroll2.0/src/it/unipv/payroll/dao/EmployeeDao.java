@@ -1,8 +1,8 @@
 package it.unipv.payroll.dao;
 
-import java.util.List;
-
 import it.unipv.payroll.model.Employee;
+
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -26,6 +26,11 @@ public class EmployeeDao {
 	public void cleanTable() {
 		em.createQuery("DELETE FROM Employee").executeUpdate();
 		
+	}
+	
+	public Employee findEmployeeById(int EmpId) {
+		Employee employee = em.createQuery("select p from Employee p where EmpId = "+EmpId, Employee.class).getSingleResult();
+		return employee;
 	}
 	
 

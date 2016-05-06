@@ -74,6 +74,10 @@ public class Employee implements Serializable{
 	public String getSurname() {
 		return surname;
 	}
+
+	public int getEmpId() {
+		return EmpId;
+	}
 	
 	
 	
