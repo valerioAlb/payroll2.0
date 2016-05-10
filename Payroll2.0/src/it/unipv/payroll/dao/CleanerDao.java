@@ -15,6 +15,7 @@ public class CleanerDao {
 		
 		em.createQuery("DELETE FROM SalesReceipt").executeUpdate();
 		em.createQuery("DELETE FROM TimeCard").executeUpdate();
+		em.createQuery("DELETE FROM Union").executeUpdate();
 		em.createQuery("DELETE FROM Employee").executeUpdate();
 		
 	}
@@ -23,6 +24,7 @@ public class CleanerDao {
 		
 		em.createQuery("DELETE FROM SalesReceipt WHERE EmpId="+EmpId).executeUpdate();
 		em.createQuery("DELETE FROM TimeCard WHERE EmpId="+EmpId).executeUpdate();
+		em.createQuery("DELETE FROM Union WHERE EmpId="+EmpId).executeUpdate();
 		em.createQuery("DELETE FROM Employee WHERE EmpId="+EmpId).executeUpdate();
 		
 	}

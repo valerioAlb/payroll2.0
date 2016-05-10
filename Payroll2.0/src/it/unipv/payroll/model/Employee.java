@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -32,7 +34,10 @@ public class Employee implements Serializable{
 	private String postalAddress;
 	private String IBAN;
 	private double salary;
-	private String unionId;
+	
+	@ManyToOne
+	@JoinColumn(name="unionId",referencedColumnName="unionId")
+	private Union union;
 	
 	public Employee() {
 		// TODO Auto-generated constructor stub
@@ -62,12 +67,15 @@ public class Employee implements Serializable{
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
-	public String getUnionId() {
-		return unionId;
+	
+	public Union getUnion() {
+		return union;
 	}
-	public void setUnionId(String unionId) {
-		this.unionId = unionId;
+
+	public void setUnion(Union union) {
+		this.union = union;
 	}
+
 	public String getName() {
 		return name;
 	}
