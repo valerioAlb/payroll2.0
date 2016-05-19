@@ -39,7 +39,7 @@ public class ServiceChargeTest extends ArquillianTest{
 	
 	@Before
 	public void cleanup() {
-		//cl_dao.cleanAll();
+		cl_dao.cleanAll();
 	}
 	
 	@Test

@@ -27,4 +27,16 @@ public class UnionDao {
 		em.createQuery("DELETE FROM Union").executeUpdate();
 		
 	}
+	
+	public Union findUnionByName(String name) {
+		Union union;
+		try {
+			union = em.createQuery("select p from UnionTable p where name = "+name, Union.class).getSingleResult();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("FUCK");
+			return null;
+		}
+		return union;
+	}
 }

@@ -23,15 +23,15 @@ public class ServiceCharge {
 	@JoinColumn(name="unionId",referencedColumnName="unionId")
 	private Union union;
 	
-	private int empId;
+	private int EmpId;
 	private double amount;
 	private Date date;
 	
 	
 	
-	public ServiceCharge(int empId, double amount, Date date) {
+	public ServiceCharge(int EmpId, double amount, Date date) {
 		super();
-		this.empId = empId;
+		this.EmpId = EmpId;
 		this.amount = amount;
 		this.date = date;
 	}
@@ -49,7 +49,7 @@ public class ServiceCharge {
 	}
 
 	public int getEmpId() {
-		return empId;
+		return EmpId;
 	}
 
 	public double getAmount() {

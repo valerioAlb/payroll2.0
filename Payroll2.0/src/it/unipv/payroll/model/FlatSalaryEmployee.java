@@ -50,6 +50,14 @@ public class FlatSalaryEmployee extends Employee{
 	public List<SalesReceipt> getReceipts() {
 		return receipts;
 	}
+
+	public void setFixedSalary(double fixedSalary) {
+		this.fixedSalary = fixedSalary;
+	}
+
+	public void setCommissionRate(double commissionRate) {
+		this.commissionRate = commissionRate;
+	}
 	
 	
 	

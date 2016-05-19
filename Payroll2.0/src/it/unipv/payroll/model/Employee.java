@@ -2,6 +2,7 @@ package it.unipv.payroll.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
@@ -17,7 +18,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Employee")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "empType", discriminatorType = DiscriminatorType.STRING)
 public class Employee implements Serializable{
 	
 	/**
@@ -35,6 +36,9 @@ public class Employee implements Serializable{
 	private String IBAN;
 	private double salary;
 	
+	@Column(name="empType", insertable = false, updatable = false)
+	private String empType;
+	
 	@ManyToOne
 	@JoinColumn(name="unionId",referencedColumnName="unionId")
 	private Union union;
@@ -48,7 +52,11 @@ public class Employee implements Serializable{
 		this.name = name;
 		this.surname = surname;
 	}
-	
+
+	public String getEmpType() {
+		return empType;
+	}
+
 	public String getPostalAddress() {
 		return postalAddress;
 	}
@@ -86,6 +94,15 @@ public class Employee implements Serializable{
 	public int getEmpId() {
 		return EmpId;
 	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+	
 	
 	
 	
