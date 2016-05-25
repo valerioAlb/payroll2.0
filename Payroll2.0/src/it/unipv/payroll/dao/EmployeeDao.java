@@ -20,6 +20,10 @@ public class EmployeeDao {
 		em.persist(employee);
 	}
 	
+	public void update(Employee employee) {
+		em.merge(employee);
+	}
+	
 	public List<Employee> findAll() {
 		List<Employee> employees = em.createQuery("select p from Employee p", Employee.class).getResultList();
 		return employees;

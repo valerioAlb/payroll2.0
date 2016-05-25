@@ -121,6 +121,7 @@ public class PayHourly{
 				payment.setDate(calendarService.getToday());
 				payment.setEmployee(employee);
 				payment.setPayAmount(total);
+				payment.setPayType("Salary");
 				
 				if (employee.getIBAN() != null) {
 					paymethod = "IBAN";
@@ -132,7 +133,7 @@ public class PayHourly{
 				payment.setPayMethod(paymethod);
 				System.out.println("TOTALEEEEE "+total);
 				
-				p_dao.add(payment);
+				p_dao.update(payment);
 				
 				e_dao.setLastPayment(payment.getId(), employee.getEmpId());
 			}

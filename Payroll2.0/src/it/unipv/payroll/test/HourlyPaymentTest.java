@@ -8,11 +8,13 @@ import it.unipv.payroll.dao.TimeCardDao;
 import it.unipv.payroll.dao.UnionDao;
 import it.unipv.payroll.logic.PayHourly;
 import it.unipv.payroll.model.HourlyEmployee;
+import it.unipv.payroll.model.Payment;
 import it.unipv.payroll.model.ServiceCharge;
 import it.unipv.payroll.model.TimeCard;
 import it.unipv.payroll.model.Union;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -111,9 +113,27 @@ public class HourlyPaymentTest extends ArquillianTest{
 		
 		payHourly.pay();
 		
+		List<Payment> payments = paymentDAO.findAll();
 		
+		for (Payment payment : payments) {
+			
+			if (payment.getPayType().equals("Salary") && (payment.getEmployee().getEmpId() == hourlyEmployee1.getEmpId())) {
+				if (total1 != payment.getPayAmount()) {
+					test = false;
+				}
+			}
+			
+			if (payment.getPayType().equals("Salary") && (payment.getEmployee().getEmpId() == hourlyEmployee2.getEmpId())) {
+				
+				if (total2 != payment.getPayAmount()) {
+					test = false;
+				}
+			}
+			
+			
+		}
 		
-		Assert.assertTrue("IL test non è stato eseguito correttamente", test);
+		Assert.assertTrue("Il test non è stato eseguito correttamente", test);
 		
 	}
 

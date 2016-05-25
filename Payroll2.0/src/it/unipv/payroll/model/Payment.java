@@ -23,12 +23,13 @@ public class Payment {
 	
 	
 	public Payment(Employee employee, Date date, String payMethod,
-			double payAmount) {
+			double payAmount, String payType) {
 		super();
 		this.employee = employee;
 		this.date = date;
 		this.payMethod = payMethod;
 		this.payAmount = payAmount;
+		this.payType = payType;
 	}
 
 	public Payment() {
@@ -43,6 +44,8 @@ public class Payment {
 	private Date date;
 	
 	private String payMethod;
+	
+	private String payType;
 	
 	private double payAmount;
 
@@ -82,6 +85,14 @@ public class Payment {
 
 	public void setPayAmount(double payAmount) {
 		this.payAmount = payAmount;
+	}
+
+	public String getPayType() {
+		return payType;
+	}
+
+	public void setPayType(String payType) {
+		this.payType = payType;
 	}
 	
 	

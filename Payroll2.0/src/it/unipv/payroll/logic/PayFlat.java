@@ -85,13 +85,14 @@ public class PayFlat{
 					
 				}
 				
-				loadPayment(employee);
+				loadPayment(employee,"Salary");
 				
 			}
 			
 		}
 		
-		if (calendarService.isFriday() && calendarService.isWeekNumberPair()) {
+		//if (calendarService.isFriday() && calendarService.isWeekNumberPair()) {
+		if(true){
 			
 			for (FlatSalaryEmployee employee : employees) {
 				
@@ -105,7 +106,7 @@ public class PayFlat{
 					total += receipt.getAmount() * employee.getCommissionRate();
 				}
 				
-				loadPayment(employee);
+				loadPayment(employee,"Commission");
 				
 				
 			}
@@ -116,10 +117,11 @@ public class PayFlat{
 	}
 
 
-	private void loadPayment(FlatSalaryEmployee employee) {
+	private void loadPayment(FlatSalaryEmployee employee,String payType) {
 		payment.setDate(calendarService.getToday());
 		payment.setEmployee(employee);
 		payment.setPayAmount(total);
+		payment.setPayType(payType);
 		
 		if (employee.getIBAN() != null) {
 			paymethod = "IBAN";
@@ -131,7 +133,7 @@ public class PayFlat{
 		payment.setPayMethod(paymethod);
 		System.out.println("TOTALEEEEE "+total);
 		
-		p_dao.add(payment);
+		p_dao.update(payment);
 		
 		e_dao.setLastPayment(payment.getId(), employee.getEmpId());
 	}

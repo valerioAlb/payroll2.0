@@ -15,6 +15,10 @@ public class PaymentDAO {
 	EntityManager em;
 	
 	public void add(Payment payment) {
+		em.persist(payment);
+	}
+	
+	public void update(Payment payment) {
 		em.merge(payment);
 	}
 	
@@ -24,7 +28,7 @@ public class PaymentDAO {
 	}
 	
 	public List<Payment> findPaymentsByEmployee(int EmpId) {
-		List<Payment> payments = em.createQuery("select p from Payment p where employee_EmpId = "+EmpId, Payment.class).getResultList();
+		List<Payment> payments = em.createQuery("select p from Payment p where EmpId = "+EmpId, Payment.class).getResultList();
 		return payments;
 	}
 	

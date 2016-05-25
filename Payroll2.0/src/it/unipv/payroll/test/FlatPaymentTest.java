@@ -8,11 +8,13 @@ import it.unipv.payroll.dao.ServiceChargeDao;
 import it.unipv.payroll.dao.UnionDao;
 import it.unipv.payroll.logic.PayFlat;
 import it.unipv.payroll.model.FlatSalaryEmployee;
+import it.unipv.payroll.model.Payment;
 import it.unipv.payroll.model.SalesReceipt;
 import it.unipv.payroll.model.ServiceCharge;
 import it.unipv.payroll.model.Union;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -107,16 +109,47 @@ public class FlatPaymentTest extends ArquillianTest{
 		salesRDao.add(receipt5);
 		salesRDao.add(receipt6);
 		
-		float total1 = 266;
-		float total2 = 3500;
+		float total1 = 446;
+		float total2 = 3000;
+		
+		float commission1 = 540;
+		float commission2 = 500;
 		
 		boolean test = true;
 		
 		payFlat.pay();
 		
+		List<Payment> payments = paymentDAO.findAll();
 		
+		for (Payment payment : payments) {
+			
+			if (payment.getPayType().equals("Salary") && (payment.getEmployee().getEmpId() == employee1.getEmpId())) {
+				if (total1 != payment.getPayAmount()) {
+					test = false;
+				}
+			}
+			if (payment.getPayType().equals("Commission") && (payment.getEmployee().getEmpId() == employee1.getEmpId())) {
+				
+				if (commission1 != payment.getPayAmount()) {
+					test = false;
+				}
+			}
+			if (payment.getPayType().equals("Salary") && (payment.getEmployee().getEmpId() == employee2.getEmpId())) {
+				
+				if (total2 != payment.getPayAmount()) {
+					test = false;
+				}
+			}
+			if (payment.getPayType().equals("Commission") && (payment.getEmployee().getEmpId() == employee2.getEmpId())) {
+				
+				if (commission2 != payment.getPayAmount()) {
+					test = false;
+				}
+			}
+			
+		}
 		
-		Assert.assertTrue("IL test non è stato eseguito correttamente", test);
+		Assert.assertTrue("Il test non è stato eseguito correttamente", test);
 		
 	}
 

@@ -31,7 +31,7 @@ public class PaymentTest extends ArquillianTest {
 		
 		HourlyEmployee employee1 = new HourlyEmployee("Marco", "Gionni", 234);
 		e_dao.add(employee1);
-		Payment payment1 = new Payment(employee1, new Date(2009-1900, 6-1, 4), "IBAN", 3000);
+		Payment payment1 = new Payment(employee1, new Date(2009-1900, 6-1, 4), "IBAN", 3000, "Salary");
 		paymentDAO.add(payment1);
 		e_dao.setLastPayment(payment1.getId(), employee1.getEmpId());
 		
