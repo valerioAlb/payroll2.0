@@ -22,6 +22,8 @@ public class ArquillianTest {
 				.addClass(ArquillianTest.class)
 				.addPackages(true, "it.unipv.payroll.model")
 				.addPackages(true, "it.unipv.payroll.dao")
+				.addPackages(true, "it.unipv.payroll.logic")
+				.addPackages(true, "it.unipv.payroll.controller")
 				.addAsResource("META-INF/persistence.xml")
 				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"));

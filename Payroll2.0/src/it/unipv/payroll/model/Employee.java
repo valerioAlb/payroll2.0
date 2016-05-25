@@ -1,6 +1,7 @@
 package it.unipv.payroll.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -13,6 +14,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -34,7 +36,7 @@ public class Employee implements Serializable{
 	private String surname;
 	private String postalAddress;
 	private String IBAN;
-	private double salary;
+	private int lastPaymentId;
 	
 	@Column(name="empType", insertable = false, updatable = false)
 	private String empType;
@@ -42,6 +44,9 @@ public class Employee implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="unionId",referencedColumnName="unionId")
 	private Union union;
+	
+	@OneToMany(mappedBy="employee")
+	private List<Payment> payments;
 	
 	public Employee() {
 		// TODO Auto-generated constructor stub
@@ -69,13 +74,15 @@ public class Employee implements Serializable{
 	public void setIBAN(String iBAN) {
 		IBAN = iBAN;
 	}
-	public double getSalary() {
-		return salary;
-	}
-	public void setSalary(double salary) {
-		this.salary = salary;
-	}
 	
+	public int getLastPaymentId() {
+		return lastPaymentId;
+	}
+
+	public void setLastPaymentId(int lastPaymentId) {
+		this.lastPaymentId = lastPaymentId;
+	}
+
 	public Union getUnion() {
 		return union;
 	}

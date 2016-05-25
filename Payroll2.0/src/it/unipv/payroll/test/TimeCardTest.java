@@ -7,7 +7,7 @@ import it.unipv.payroll.model.Employee;
 import it.unipv.payroll.model.HourlyEmployee;
 import it.unipv.payroll.model.TimeCard;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import javax.inject.Inject;

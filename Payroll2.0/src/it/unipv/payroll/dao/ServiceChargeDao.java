@@ -25,7 +25,8 @@ public class ServiceChargeDao {
 	}
 	
 	public List<ServiceCharge> findByDate(String initDate, String finDate) {
-		List<ServiceCharge> charges = em.createQuery("select p from ServiceCharge WHERE date", ServiceCharge.class).getResultList();
+		String query ="select p from ServiceCharge p WHERE date BETWEEN '"+initDate+"' AND '"+finDate+"'";
+		List<ServiceCharge> charges = em.createQuery(query, ServiceCharge.class).getResultList();
 		return charges;
 	}
 	

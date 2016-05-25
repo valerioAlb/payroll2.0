@@ -87,7 +87,6 @@ public class EmployeeBean implements Serializable{
 	
 	public void deleteEmployee(){
 		e_controller.deleteEmployee(selectedEmployee.getEmpId());
-		//resetBean();
 		
 	}
 	
@@ -108,22 +107,6 @@ public class EmployeeBean implements Serializable{
 	}
 	
 	
-	private void resetBean(){
-		
-		this.empID=0; //Used for delete operation
-		this.name=null;
-		this.surname=null;
-		this.postalAddress=null;
-		this.IBAN=null;
-		this.unionName=null;
-		this.type=null;
-		
-		this.hourlySalary=0;
-		
-		this.fixedSalary=0;
-		this.commissionRate=0;
-	}
-
 	public int getEmpID() {
 		return empID;
 	}

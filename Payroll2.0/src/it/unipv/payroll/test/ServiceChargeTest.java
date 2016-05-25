@@ -1,6 +1,6 @@
 package it.unipv.payroll.test;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import it.unipv.payroll.dao.CleanerDao;

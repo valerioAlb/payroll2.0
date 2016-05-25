@@ -7,7 +7,7 @@ import it.unipv.payroll.model.Employee;
 import it.unipv.payroll.model.FlatSalaryEmployee;
 import it.unipv.payroll.model.SalesReceipt;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import javax.inject.Inject;

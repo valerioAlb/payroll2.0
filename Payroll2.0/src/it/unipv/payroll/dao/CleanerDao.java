@@ -14,6 +14,7 @@ public class CleanerDao {
 	public void cleanAll() {
 		
 		em.createQuery("DELETE FROM SalesReceipt").executeUpdate();
+		em.createQuery("DELETE FROM Payment").executeUpdate();
 		em.createQuery("DELETE FROM TimeCard").executeUpdate();
 		em.createQuery("DELETE FROM ServiceCharge").executeUpdate();
 		em.createQuery("DELETE FROM Employee").executeUpdate();

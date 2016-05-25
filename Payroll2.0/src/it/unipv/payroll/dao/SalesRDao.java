@@ -38,4 +38,12 @@ public class SalesRDao {
 		
 	}
 
+	public List<SalesReceipt> findReceiptsByEmployeeAndByDate(int empId,String initDate, String finDate) {
+		
+		String query = "select p from SalesReceipt p where EmpId = "+empId+ " and ( date BETWEEN '"+initDate+"' AND '"+finDate+"')";
+		List<SalesReceipt> receipts = em.createQuery(query, SalesReceipt.class).getResultList();
+		
+		return receipts;
+	}
+
 }
