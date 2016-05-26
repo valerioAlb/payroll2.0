@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "UnionTable")
-public class Union{
+public class UnionTable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -19,13 +19,13 @@ public class Union{
 	
 	
 	
-	public Union(String name, double duesRate) {
+	public UnionTable(String name, double duesRate) {
 		super();
 		this.name = name;
 		this.duesRate = duesRate;
 	}
 	
-	public Union() {
+	public UnionTable() {
 		// TODO Auto-generated constructor stub
 	}
 

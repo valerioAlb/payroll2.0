@@ -43,7 +43,7 @@ public class Employee implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="unionId",referencedColumnName="unionId")
-	private Union union;
+	private UnionTable union;
 	
 	@OneToMany(mappedBy="employee")
 	private List<Payment> payments;
@@ -83,11 +83,11 @@ public class Employee implements Serializable{
 		this.lastPaymentId = lastPaymentId;
 	}
 
-	public Union getUnion() {
+	public UnionTable getUnion() {
 		return union;
 	}
 
-	public void setUnion(Union union) {
+	public void setUnion(UnionTable union) {
 		this.union = union;
 	}
 

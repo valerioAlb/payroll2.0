@@ -11,7 +11,7 @@ import it.unipv.payroll.model.Employee;
 import it.unipv.payroll.model.FlatSalaryEmployee;
 import it.unipv.payroll.model.HourlyEmployee;
 import it.unipv.payroll.model.ServiceCharge;
-import it.unipv.payroll.model.Union;
+import it.unipv.payroll.model.UnionTable;
 
 import javax.inject.Inject;
 
@@ -45,8 +45,8 @@ public class ServiceChargeTest extends ArquillianTest{
 	@Test
 	public void testUnion(){
 		
-		Union union1 = new Union("CappellaSPA", 0.5);
-		Union union2 = new Union("FifolaSPA", 0.2);
+		UnionTable union1 = new UnionTable("CappellaSPA", 0.5);
+		UnionTable union2 = new UnionTable("FifolaSPA", 0.2);
 		
 		u_dao.add(union1);
 		u_dao.add(union2);
@@ -86,8 +86,8 @@ public class ServiceChargeTest extends ArquillianTest{
 	@Test
 	public void testServiceCharge(){
 		
-		Union union1 = new Union("CappellaSPA", 0.5);
-		Union union2 = new Union("FifolaSPA", 0.2);
+		UnionTable union1 = new UnionTable("CappellaSPA", 0.5);
+		UnionTable union2 = new UnionTable("FifolaSPA", 0.2);
 		
 		u_dao.add(union1);
 		u_dao.add(union2);

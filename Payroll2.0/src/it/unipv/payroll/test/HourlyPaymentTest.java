@@ -11,7 +11,7 @@ import it.unipv.payroll.model.HourlyEmployee;
 import it.unipv.payroll.model.Payment;
 import it.unipv.payroll.model.ServiceCharge;
 import it.unipv.payroll.model.TimeCard;
-import it.unipv.payroll.model.Union;
+import it.unipv.payroll.model.UnionTable;
 
 import java.sql.Date;
 import java.util.List;
@@ -59,8 +59,8 @@ public class HourlyPaymentTest extends ArquillianTest{
 	@Test
 	public void testHourlyPayment(){
 		
-		Union union1 = new Union("CappellaSPA", 0.5);
-		Union union2 = new Union("FifolaSPA", 0.2);
+		UnionTable union1 = new UnionTable("CappellaSPA", 0.5);
+		UnionTable union2 = new UnionTable("FifolaSPA", 0.2);
 		
 		u_dao.add(union1);
 		u_dao.add(union2);

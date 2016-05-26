@@ -7,14 +7,12 @@
 
 	<h:head>
 	
-		
-
 	</h:head>
 	
 	<h:body style="color: black; background-color: grey">
 
 	<h1>Pagina di prova</h1>
-	<h2>Valerio Mister X Ti LoVvO</h2>
+	<h2 style="color:yellow">Valerio Mister X Ti LoVvO</h2>
 	
 	<h:form id="form">
 			<p:dataTable id="singleDT" var="emp" value="#{employee.employees}" selectionMode="single" selection="#{employee.selectedEmployee}" rowKey="#{emp.empId}">
@@ -43,80 +41,26 @@
 	        <p:column headerText="Postal Address">
 	            <h:outputText value="#{emp.postalAddress}" />
 	        </p:column>
-	        <p:column headerText="Salary">
-	            <h:outputText value="#{emp.salary}" />
-	        </p:column>
 	        
 	        <f:facet name="footer">
-				<p:commandButton update=":form:#{employee.init()}" icon="ui-icon-search" value="Update"/>
+				
 				<p:commandButton process="singleDT" action="#{employee.deleteEmployee()}" update=":form:#{employee.init()}" icon="ui-icon-trash-1" value="Delete" />
-				<p:commandButton icon="ui-icon-trash-1" action="#{employee.setHourly()}" value="Add Hourly Employee" oncomplete="PF('HRE').show()" />
-				<p:commandButton icon="ui-icon-trash-1" action="#{employee.setFlat()}" value="Add Flat Employee" oncomplete="PF('FLE').show()" />
+				<p:commandButton icon="ui-icon-trash-1" value="Modify" label="modify" action="#{employee.openModifyPage()}"/>
         	</f:facet>
 	    </p:dataTable>
+	</h:form>
+	
+	<h:form>
+	    <p:panelGrid style="margin:auto;width:30%">
+	    	<h2 style="color:yellow">Add a new employee</h2>  
+	    	<p:commandButton update=":form:#{employee.init()}" icon="ui-icon-search" value="Update"/>
+			<p:commandButton icon="ui-icon-trash-1" value="Add Hourly" label="addHourly" action="addHourly" actionListener="#{employee.setHourly()}"   />
+			<p:commandButton icon="ui-icon-trash-1" value="Add Flat" label="addFlat" action="addFlat" actionListener="#{employee.setFlat()}"   />	    
+	    </p:panelGrid>
 	    
-	    
-	    <p:dialog header="Flat Employee Form" widgetVar="FLE" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-	    	<h:form id="fleForm">
-			    <h:panelGrid columns="2" cellpadding="5">
-			        <p:outputLabel for="name" value="Name: " />
-			        <p:inputMask required = "true" id="name" value="#{employee.name}"/>
-			 
-			        <p:outputLabel for="surname" value="Surname: " />
-			        <p:inputMask required = "true" id="surname" value="#{employee.surname}" />
-			 
-			        <p:outputLabel for="postal" value="Postal Address:" />
-			        <p:inputMask id="postal" value="#{employee.postalAddress}" />
-			 
-			        <p:outputLabel for="iban" value="Iban: " />
-			        <p:inputMask id="iban" value="#{employee.IBAN}" />
-			        
-			        <p:outputLabel for="salary" value="Flat Salary: " />
-			        <p:inputMask required = "true" id="salary" value="#{employee.fixedSalary}"/>
-			        
-			        <p:outputLabel for="rate" value="Commission Rate: " />
-			        <p:inputMask required = "true" id="rate" value="#{employee.commissionRate}"/>
-			        
-			        <p:outputLabel for="union" value="Union Name: " />
-			        <p:inputMask id="union" value="#{employee.unionName}"/>
-			 
-			        <p:commandButton value="Reset" type="reset" />
-			        <p:commandButton action="#{employee.addEmployee()}" process="fleForm" value="Submit" oncomplete="PF('FLE').hide()" />
-			    </h:panelGrid>
-			 </h:form>
-	    </p:dialog>
-	    	    
-	    <p:dialog header="Hourly Employee Form" widgetVar="HRE" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-	    	<h:form id="hreForm">
-			    <h:panelGrid columns="2" cellpadding="5">
-			        <p:outputLabel for="name" value="Name: " />
-			        <p:inputMask id="name" value="#{employee.name}"/>
-			 
-			        <p:outputLabel for="surname" value="Surname: " />
-			        <p:inputMask id="surname" value="#{employee.surname}" />
-			 
-			        <p:outputLabel for="postal" value="Postal Address:" />
-			        <p:inputMask id="postal" value="#{employee.postalAddress}" />
-			 
-			        <p:outputLabel for="iban" value="Iban: " />
-			        <p:inputMask id="iban" value="#{employee.IBAN}" />
-							       		        
-			        <p:outputLabel for="salary" value="Hourly Salary: " />
-			        <p:inputMask id="salary" value="#{employee.hourlySalary}"/>
-			        
-			        <p:outputLabel for="union" value="Union Name: " />
-			        <p:inputMask id="union" value="#{employee.unionName}"/>
-			 
-			        <p:commandButton value="Reset" type="reset" />
-			       <!--  <p:commandButton icon="ui-icon-trash-1" action="#{employee.setFlat()}" value="Flat" oncomplete="PF('FLE').show(),PF('addEmpDlg').close()" />	 -->
-			        <p:commandButton  action="#{employee.addEmployee()}" process="hreForm" value="Submit" oncomplete="PF('HRE').hide()"/>
-			    </h:panelGrid>
-			 </h:form>
-	    </p:dialog>
+	</h:form>  
 	    
 
-	    
-	</h:form>
 
 	
 	</h:body>

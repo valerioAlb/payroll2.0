@@ -23,7 +23,7 @@ public class ServiceCharge {
 	
 	@ManyToOne
 	@JoinColumn(name="unionId",referencedColumnName="unionId")
-	private Union union;
+	private UnionTable union;
 	
 	private int EmpId;
 	private double amount;
@@ -40,7 +40,7 @@ public class ServiceCharge {
 	
 	
 	
-	public void setUnion(Union union) {
+	public void setUnion(UnionTable union) {
 		this.union = union;
 	}
 
@@ -62,7 +62,7 @@ public class ServiceCharge {
 		return date;
 	}
 
-	public Union getUnion() {
+	public UnionTable getUnion() {
 		return union;
 	}
 	

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+
+	</h:head>
+	
+	<h:body style="color: black; background-color: grey">
+
+	<h1>Modify Flat Employee</h1>
+	<h2>Bello Fifolotto</h2>
+	
+	<h:form>
+		<p:commandButton value = "Home" label="home" action="home" />
+	</h:form>
+	
+		<h:form id="fleModForm">
+			    <h:panelGrid columns="2" cellpadding="5">
+			        <p:outputLabel for="name" value="Name: " />
+			        <p:inputMask required = "true" id="name" value="#{employee.selectedFlatEmployee.name}"/>
+			 
+			        <p:outputLabel for="surname" value="Surname: " />
+			        <p:inputMask required = "true" id="surname" value="#{employee.selectedFlatEmployee.surname}" />
+			 
+			        <p:outputLabel for="postal" value="Postal Address:" />
+			        <p:inputMask id="postal" value="#{employee.selectedFlatEmployee.postalAddress}" />
+			 
+			        <p:outputLabel for="iban" value="Iban: " />
+			        <p:inputMask id="iban" value="#{employee.selectedFlatEmployee.IBAN}" />
+			        
+			        <p:outputLabel for="salary" value="Flat Salary: " />
+			        <p:inputMask required = "true" id="salary" value="#{employee.selectedFlatEmployee.fixedSalary}"/>
+			        
+			        <p:outputLabel for="rate" value="Commission Rate: " />
+			        <p:inputMask required = "true" id="rate" value="#{employee.selectedFlatEmployee.commissionRate}"/>
+			        
+			        <p:outputLabel for="union" value="Union Name: " />
+			        <p:inputMask id="union" value="#{employee.unionName}"/>
+			 
+			        <p:commandButton value="Reset" type="reset" />
+			        <p:commandButton action="#{employee.modifyEmployee()}" value="Submit"/>
+			    </h:panelGrid>
+			 </h:form>
+	 
+	</h:body>
+	
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#index.xhtml:0" NAME="item"
+   PATH="/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="addHourly::#addHourly.xhtml" NAME="output"
+    PATH="/addHourly.xhtml" TARGET="rules:#addHourly.xhtml"
+    TITLE="addHourly" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="addFlat::#addFlat.xhtml" NAME="output1"
+    PATH="/addFlat.xhtml" TARGET="rules:#addFlat.xhtml" TITLE="addFlat" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="FLE::#modifyFlat.xhtml" NAME="output2"
+    PATH="/modifyFlat.xhtml" TARGET="rules:#modifyFlat.xhtml"
+    TITLE="FLE" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="HRE::#modifyHourly.xhtml" NAME="output3"
+    PATH="/modifyHourly.xhtml" TARGET="rules:#modifyHourly.xhtml"
+    TITLE="HRE" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#addFlat.xhtml" PATH="/addFlat.xhtml"
+  SHAPE="168,216,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#addFlat.xhtml:0" NAME="item"
+   PATH="/addFlat.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="home::#index.xhtml" NAME="output"
+    PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="home" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#addHourly.xhtml" PATH="/addHourly.xhtml"
+  SHAPE="256,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#addHourly.xhtml:0" NAME="item"
+   PATH="/addHourly.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="home::#index.xhtml" NAME="output"
+    PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="home" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#modifyHourly.xhtml"
+  PATH="/modifyHourly.xhtml" SHAPE="304,353,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#modifyHourly.xhtml:0" NAME="item"
+   PATH="/modifyHourly.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="home::#index.xhtml" NAME="output"
+    PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="home" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#modifyFlat.xhtml" PATH="/modifyFlat.xhtml"
+  SHAPE="304,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#modifyFlat.xhtml:0" NAME="item"
+   PATH="/modifyFlat.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="home::#index.xhtml" NAME="output"
+    PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="home" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

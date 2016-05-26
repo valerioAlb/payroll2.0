@@ -1,6 +1,6 @@
 package it.unipv.payroll.dao;
 
-import it.unipv.payroll.model.Union;
+import it.unipv.payroll.model.UnionTable;
 
 import java.util.List;
 
@@ -14,29 +14,26 @@ public class UnionDao {
 	@PersistenceContext
 	EntityManager em;
 	
-	public void add(Union union) {
+	public void add(UnionTable union) {
 		em.persist(union);
 	}
 	
-	public List<Union> findAll() {
-		List<Union> unions = em.createQuery("select p from Union p", Union.class).getResultList();
+	public List<UnionTable> findAll() {
+		List<UnionTable> unions = em.createQuery("select p from UnionTable p", UnionTable.class).getResultList();
 		return unions;
 	}
 	
 	public void cleanTable() {
-		em.createQuery("DELETE FROM Union").executeUpdate();
+		em.createQuery("DELETE FROM UnionTable").executeUpdate();
 		
 	}
 	
-	public Union findUnionByName(String name) {
-		Union union;
-		try {
-			union = em.createQuery("select p from UnionTable p where name = "+name, Union.class).getSingleResult();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.out.println("FUCK");
-			return null;
-		}
+	public UnionTable findUnionByName(String name) {
+		UnionTable union;
+		String query = "select p from UnionTable p where name = '"+name+"'";
+		System.out.println("The query is: "+query);
+		union = em.createQuery(query, UnionTable.class).getSingleResult();
+		
 		return union;
 	}
 }

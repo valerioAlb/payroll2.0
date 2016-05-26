@@ -54,5 +54,16 @@ public class EmployeeDao {
 		return employee;
 	}
 	
+	public HourlyEmployee findHourlyEmployeeById(int EmpId) {
+		HourlyEmployee employee = em.createQuery("select p from HourlyEmployee p where EmpId = "+EmpId, HourlyEmployee.class).getSingleResult();
+		return employee;
+	}
+	
+	public FlatSalaryEmployee findFlatEmployeeById(int EmpId) {
+		FlatSalaryEmployee employee = em.createQuery("select p from FlatSalaryEmployee p where EmpId = "+EmpId, FlatSalaryEmployee.class).getSingleResult();
+		return employee;
+	}
 
+	
+	
 }

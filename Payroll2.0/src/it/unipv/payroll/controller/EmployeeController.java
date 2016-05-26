@@ -8,7 +8,7 @@ import it.unipv.payroll.dao.UnionDao;
 import it.unipv.payroll.model.Employee;
 import it.unipv.payroll.model.FlatSalaryEmployee;
 import it.unipv.payroll.model.HourlyEmployee;
-import it.unipv.payroll.model.Union;
+import it.unipv.payroll.model.UnionTable;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -33,7 +33,7 @@ public class EmployeeController {
 	FlatSalaryEmployee flat;
 
 	public void add(String type, String name, String surname, String postalAddress,
-			String iBAN, Union union, float hourlySalary,
+			String iBAN, UnionTable union, float hourlySalary,
 			double fixedSalary, double commissionRate) {
 		if (type.equals("hourly")) {
 			
@@ -44,7 +44,7 @@ public class EmployeeController {
 			hourly.setIBAN(iBAN);
 			hourly.setUnion(union);
 			
-			e_dao.add(hourly);
+			e_dao.update(hourly);
 			
 		} else if (type.equals("flat")) {
 			
@@ -56,7 +56,7 @@ public class EmployeeController {
 			flat.setFixedSalary(fixedSalary);
 			flat.setCommissionRate(commissionRate);
 			
-			e_dao.add(flat);
+			e_dao.update(flat);
 			
 		}
 		
@@ -68,11 +68,9 @@ public class EmployeeController {
 		
 	}
 
-	public void modifyEployee(int empID, String postalAddress, String iBAN,
-			Union union, float hourlySalary, double fixedSalary,
-			double commissionRate) {
-		
-		
+	public void modifyEployee(Employee employee) {
+		System.out.println("ADDRESS "+employee.getPostalAddress());
+		e_dao.update(employee);
 		
 	}
 	
@@ -80,9 +78,21 @@ public class EmployeeController {
 		return e_dao.findAll();
 	}
 	
-	public Union findUnionByName(String name) {
+	public UnionTable findUnionByName(String name) {
 		
 		return u_dao.findUnionByName(name);
+	}
+
+	public HourlyEmployee findHourly(int empId) {
+		HourlyEmployee hourlyEmployee = e_dao.findHourlyEmployeeById(empId);
+		return hourlyEmployee;
+		
+	}
+	
+	public FlatSalaryEmployee findFlat(int empId) {
+		FlatSalaryEmployee flaEmployee = e_dao.findFlatEmployeeById(empId);
+		return flaEmployee;
+		
 	}
 	
 	
