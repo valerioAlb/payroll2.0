@@ -18,6 +18,10 @@ public class SalesRDao {
 		em.persist(receipt);
 	}
 	
+	public void update(SalesReceipt receipt) {
+		em.merge(receipt);
+	}
+	
 	public List<SalesReceipt> findAll() {
 		List<SalesReceipt> receipts = em.createQuery("select p from SalesReceipt p", SalesReceipt.class).getResultList();
 		return receipts;

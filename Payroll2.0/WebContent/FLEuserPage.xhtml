@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		#{FLEuserbean.init()}
+	</h:head>
+	
+	<h:body style="color: black; background-color: grey">
+
+	<h1 style="color:yellow">Flat User Reserved Area</h1>
+	
+	<h1>Welcome #{FLEuserbean.flatSalaryEmployee.name}</h1>
+	
+	<table>
+	  <tr>
+	  	<th align="left">Id:</th>
+	    <td>#{FLEuserbean.flatSalaryEmployee.empId}</td>
+	  </tr>
+	  <tr>
+	  	<th align="left">Name:</th>
+	    <td>#{FLEuserbean.flatSalaryEmployee.name}</td>
+	  </tr>
+	  <tr>
+	  	<th align="left">Surname:</th>
+	    <td>#{FLEuserbean.flatSalaryEmployee.surname}</td>
+	  </tr>
+	  <tr>
+	  	<th align="left">Commission Rate:</th>
+	    <td>#{FLEuserbean.flatSalaryEmployee.commissionRate}</td>
+	  </tr>
+	  <tr>
+	  	<th align="left">Fixed Salary:</th>
+	    <td>#{FLEuserbean.flatSalaryEmployee.fixedSalary}</td>
+	  </tr>
+	  <tr>
+	  	<th align="left">Union:</th>
+	    <td>#{FLEuserbean.flatSalaryEmployee.union.name}</td>
+	  </tr>
+	  <tr>
+	  	<th align="left">Postal Address:</th>
+	    <td>#{FLEuserbean.flatSalaryEmployee.postalAddress}</td>
+	  </tr>
+	  <tr>
+	  	<th align="left">IBAN:</th>
+	    <td>#{FLEuserbean.flatSalaryEmployee.IBAN}</td>
+	  </tr>
+	</table> 
+	<br />
+	<br />
+	<p:dataTable var="payment" value="#{FLEuserbean.payments}">
+		<f:facet name="header">
+	            Employee Payments
+	    </f:facet>
+	    <p:column headerText="Date">
+	        <h:outputText value="#{payment.date}" />
+	    </p:column>
+	 
+	    <p:column headerText="Pay Amount">
+	        <h:outputText value="#{payment.payAmount}" />
+	    </p:column>
+	 
+	    <p:column headerText="Pay Method">
+	        <h:outputText value="#{payment.payMethod}" />
+	    </p:column>
+	    
+	</p:dataTable>
+	
+	<h:form>
+	    <h:panelGrid columns="2" cellpadding="5">
+	        
+	        <p:outputLabel for="restricted" value="Date: " />
+	        <p:calendar id="restricted" value="#{FLEuserbean.date}" maxdate="#{FLEuserbean.todayDate}" />
+	        
+	        <p:outputLabel for="amount" value="Amount: " />
+	        <p:inputMask required = "true" id="amount" value="#{FLEuserbean.amount}" />
+	        
+	        <p:commandButton icon="ui-icon-trash-1" value="Post a Sales Receipt" label="PostReceipt" action="#{FLEuserbean.postSalesReceipt()}" />
+	        
+	     </h:panelGrid>
+     </h:form>
+	
+	
+		
+	 
+	</h:body>
+	
+</html>

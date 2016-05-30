@@ -1,6 +1,7 @@
 package it.unipv.payroll.view;
 
 import it.unipv.payroll.controller.EmployeeController;
+import it.unipv.payroll.dao.CredentialDao;
 import it.unipv.payroll.model.Employee;
 import it.unipv.payroll.model.FlatSalaryEmployee;
 import it.unipv.payroll.model.HourlyEmployee;
@@ -18,7 +19,7 @@ import javax.inject.Named;
 @SessionScoped
 //@ManagedBean(name="employee")
 //@ViewScoped
-public class EmployeeBean implements Serializable{
+public class AdministratorBean implements Serializable{
 
 	/**
 	 * 
@@ -28,6 +29,9 @@ public class EmployeeBean implements Serializable{
 	@Inject
 	EmployeeController e_controller;
 	
+	@Inject
+	CredentialDao credentialDao;
+	
 	
 	private int empID; //Used for delete operation
 	private String name;
@@ -36,6 +40,7 @@ public class EmployeeBean implements Serializable{
 	private String IBAN;
 	private String unionName;
 	private String type;
+	private String password;
 	
 	//Used only for the html interface
 	private String tempType;
@@ -74,6 +79,7 @@ public class EmployeeBean implements Serializable{
 		this.hourlySalary = 0;
 		this.fixedSalary = 0;
 		this.commissionRate = 0;
+		this.password="";
 	}
 
 	public Employee getSelectedEmployee() {
@@ -83,6 +89,13 @@ public class EmployeeBean implements Serializable{
 	public void setSelectedEmployee(Employee selectedEmployee) {
 		
 		this.selectedEmployee = selectedEmployee;
+		
+		try {
+			this.password = credentialDao.findCredentialByEmployee(selectedEmployee.getEmpId()).getPassword();
+		} catch (Exception e) {
+			this.password = "";
+		}
+		
 		if (selectedEmployee.getUnion() != null) {
 			this.unionName = selectedEmployee.getUnion().getName();
 		} else {
@@ -104,11 +117,15 @@ public class EmployeeBean implements Serializable{
 		
 		System.out.println(type);
 		
-		UnionTable union = e_controller.findUnionByName(unionName);
+		UnionTable union = null;
+		if (!unionName.equals("")) {
+			union = e_controller.findUnionByName(unionName);
+		}
+		
 		
 		System.out.println(type);
 		
-		e_controller.add(type,name,surname,postalAddress,IBAN,union,hourlySalary,fixedSalary,commissionRate);
+		e_controller.add(type,name,surname,postalAddress,IBAN,union,hourlySalary,fixedSalary,commissionRate,password);
 		
 		resetBean();
 		
@@ -144,10 +161,10 @@ public class EmployeeBean implements Serializable{
 		
 		if (selectedEmployee.getEmpType().equals("HRE")) {
 				selectedHourlyEmployee.setUnion(union);
-			e_controller.modifyEployee(selectedHourlyEmployee);
+			e_controller.modifyEployee(selectedHourlyEmployee,password);
 		} else {
 				selectedFlatEmployee.setUnion(union);
-			e_controller.modifyEployee(selectedFlatEmployee);
+			e_controller.modifyEployee(selectedFlatEmployee,password);
 		}
 		
 	}
@@ -276,6 +293,14 @@ public class EmployeeBean implements Serializable{
 
 	public void setSelectedFlatEmployee(FlatSalaryEmployee selectedFlatEmployee) {
 		this.selectedFlatEmployee = selectedFlatEmployee;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

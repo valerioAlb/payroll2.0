@@ -9,16 +9,15 @@
 	
 	</h:head>
 	
-	<h:body style="color: black; background-color: grey">
+	<h:body style="color: yellow; background-color: grey">
 
-	<h1>Add Hourly Employee</h1>
-	<h2>Bello Fifolotto</h2>
+	<h1 style="color:yellow">Modify Hourly Employee</h1>
 	
 	<h:form>
 		<p:commandButton value = "Home" label="home" action="home"/>
 	</h:form>
 	
-		<h:form id="hreModForm">
+		<h:form id="hreModForm" style="color:yellow">
 			<h:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel for="name" value="Name: " />
 			    <p:inputMask id="name" value="#{employee.selectedHourlyEmployee.name}"/>
@@ -37,6 +36,9 @@
 			        
 		        <p:outputLabel for="union" value="Union Name: " />
 		        <p:inputMask id="union" value="#{employee.unionName}"/>
+		        
+		        <p:outputLabel for="password" value="User Password: " />
+		        <p:inputMask id="password" value="#{employee.password}"/>
 			 
 		        <p:commandButton value="Reset" type="reset" />
 			    <p:commandButton  action="#{employee.modifyEmployee()}" value="Submit"/>

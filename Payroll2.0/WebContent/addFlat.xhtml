@@ -11,14 +11,13 @@
 	
 	<h:body style="color: black; background-color: grey">
 
-	<h1>Add Flat Employee</h1>
-	<h2>Bello Fifolotto</h2>
+	<h1 style="color:yellow">Add Flat Employee</h1>
 	
 	<h:form>
 		<p:commandButton value = "Home" label="home" action="home" />
 	</h:form>
 	
-		<h:form id="fleForm">
+		<h:form id="fleForm" style="color:yellow">
 			    <h:panelGrid columns="2" cellpadding="5">
 			        <p:outputLabel for="name" value="Name: " />
 			        <p:inputMask required = "true" id="name" value="#{employee.name}"/>
@@ -40,6 +39,9 @@
 			        
 			        <p:outputLabel for="union" value="Union Name: " />
 			        <p:inputMask id="union" value="#{employee.unionName}"/>
+			        
+			        <p:outputLabel for="password" value="User Password: " />
+		       		<p:inputMask required = "true" id="password" value="#{employee.password}"/>
 			 
 			        <p:commandButton value="Reset" type="reset" />
 			        <p:commandButton action="#{employee.addEmployee()}" value="Submit"/>

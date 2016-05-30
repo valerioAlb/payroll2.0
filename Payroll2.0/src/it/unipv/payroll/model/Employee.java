@@ -15,6 +15,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -47,6 +48,9 @@ public class Employee implements Serializable{
 	
 	@OneToMany(mappedBy="employee")
 	private List<Payment> payments;
+	
+	@OneToOne(mappedBy="employee")
+	private Credentials credential;
 	
 	public Employee() {
 		// TODO Auto-generated constructor stub

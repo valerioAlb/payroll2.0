@@ -17,11 +17,12 @@ public class EmployeeDao {
 	EntityManager em;
 	
 	public void add(Employee employee) {
-		em.persist(employee);
+		em.persist(employee);;
 	}
 	
-	public void update(Employee employee) {
-		em.merge(employee);
+	public int update(Employee employee) {
+		employee = em.merge(employee);
+		return employee.getEmpId();
 	}
 	
 	public List<Employee> findAll() {

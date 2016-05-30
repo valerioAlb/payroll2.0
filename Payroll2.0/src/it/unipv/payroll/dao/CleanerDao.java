@@ -13,12 +13,42 @@ public class CleanerDao {
 	
 	public void cleanAll() {
 		
-		em.createQuery("DELETE FROM SalesReceipt").executeUpdate();
-		em.createQuery("DELETE FROM Payment").executeUpdate();
-		em.createQuery("DELETE FROM TimeCard").executeUpdate();
-		em.createQuery("DELETE FROM ServiceCharge").executeUpdate();
-		em.createQuery("DELETE FROM Employee").executeUpdate();
-		em.createQuery("DELETE FROM UnionTable").executeUpdate();
+		try {
+			em.createQuery("DELETE FROM SalesReceipt").executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		try {
+			em.createQuery("DELETE FROM Payment").executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		try {
+			em.createQuery("DELETE FROM TimeCard").executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			em.createQuery("DELETE FROM ServiceCharge").executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		try {
+			em.createQuery("DELETE FROM Credentials").executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		try {
+			em.createQuery("DELETE FROM Employee").executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		try {
+			em.createQuery("DELETE FROM UnionTable").executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		
 	}
@@ -29,6 +59,7 @@ public class CleanerDao {
 		em.createQuery("DELETE FROM TimeCard WHERE EmpId="+EmpId).executeUpdate();
 		em.createQuery("DELETE FROM ServiceCharge WHERE EmpId="+EmpId).executeUpdate();
 		em.createQuery("DELETE FROM Payment WHERE EmpId="+EmpId).executeUpdate();
+		em.createQuery("DELETE FROM Credentials WHERE EmpId="+EmpId).executeUpdate();
 		em.createQuery("DELETE FROM Employee WHERE EmpId="+EmpId).executeUpdate();
 		
 		

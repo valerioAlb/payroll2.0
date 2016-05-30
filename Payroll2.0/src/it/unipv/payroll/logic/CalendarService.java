@@ -16,11 +16,25 @@ private Calendar calendar;
 		return date;
 	}	
 	
+	
+	public Date getSqlDate(java.util.Date date){
+		
+		Date sqlDate = new Date(date.getTime());
+		return sqlDate;
+		
+	}
+	
 	public Date getToday(){
 		calendar = new GregorianCalendar();
 		Date date = new Date(0);
 		date = wrapDate(calendar);
 		return date;
+	}
+	
+	public String getFormattedToday(){
+		calendar = new GregorianCalendar();
+		String formatted = calendar.get(Calendar.DAY_OF_MONTH)+"/"+(calendar.get(Calendar.MONTH)+1)+"/"+(calendar.get(Calendar.YEAR)-2000);
+		return formatted;
 	}
 
 	public int getCurrentNumberDay() {

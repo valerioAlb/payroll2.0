@@ -44,6 +44,14 @@ public class TimeCard {
 	public float getHours() {
 		return hours;
 	}
+	
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public void setHours(float hours) {
+		this.hours = hours;
+	}
 
 	public HourlyEmployee getHourly_employee() {
 		return hourly_employee;

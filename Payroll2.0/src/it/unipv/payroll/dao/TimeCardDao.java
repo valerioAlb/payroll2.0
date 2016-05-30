@@ -18,6 +18,10 @@ public class TimeCardDao {
 		em.persist(timeCard);
 	}
 	
+	public void merge(TimeCard timeCard) {
+		em.merge(timeCard);
+	}
+	
 	public List<TimeCard> findAll() {
 		List<TimeCard> timeCards = em.createQuery("select p from TimeCard p", TimeCard.class).getResultList();
 		return timeCards;

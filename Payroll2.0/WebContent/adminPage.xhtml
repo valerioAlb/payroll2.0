@@ -11,13 +11,12 @@
 	
 	<h:body style="color: black; background-color: grey">
 
-	<h1>Pagina di prova</h1>
-	<h2 style="color:yellow">Valerio Mister X Ti LoVvO</h2>
+	<h2 style="color:yellow">Administrator Page</h2>
 	
 	<h:form id="form">
 			<p:dataTable id="singleDT" var="emp" value="#{employee.employees}" selectionMode="single" selection="#{employee.selectedEmployee}" rowKey="#{emp.empId}">
 	        <f:facet name="header">
-	            Single with Row Click
+	            Employees
 	        </f:facet>
 	        
 	        <p:column headerText="Id">
@@ -51,6 +50,7 @@
 	</h:form>
 	
 	<h:form>
+	
 	    <p:panelGrid style="margin:auto;width:30%">
 	    	<h2 style="color:yellow">Add a new employee</h2>  
 	    	<p:commandButton update=":form:#{employee.init()}" icon="ui-icon-search" value="Update"/>
