@@ -48,7 +48,8 @@
         	</f:facet>
 	    </p:dataTable>
 	</h:form>
-	
+	<br />
+	<br />
 	<h:form>
 	
 	    <p:panelGrid style="margin:auto;width:30%">
@@ -59,6 +60,35 @@
 	    </p:panelGrid>
 	    
 	</h:form>  
+	
+	
+	<br />
+	<br />
+	
+	<h2 style="color:yellow">Post Union Service Charge</h2>
+	<h:form>
+	
+	<p:growl id="growl" showDetail="true" sticky="true" />  
+    <h:panelGrid columns="2" cellpadding="5">
+        
+  
+        <p:outputLabel for="empID" value="Employee ID:  " />
+        <p:inputMask required = "true" id="empID" value="#{employee.empID}" />
+        
+        <p:outputLabel for="amount" value="Amount: " />
+        <p:inputMask required = "true" id="amount" value="#{employee.amount}" />
+        
+        <p:outputLabel for="restricted" value="Date: " />
+        <p:calendar id="restricted" value="#{employee.date}" maxdate="#{employee.todayDate}}" />
+        
+        <p:outputLabel for="unionName" value="Union Name:  " />
+        <p:inputMask id="unionName" value="#{employee.unionName}" />
+        
+        <p:commandButton value="Reset" type="reset" />
+        <p:commandButton icon="ui-icon-trash-1" value="Post a Sales Receipt" label="PostReceipt" action="#{employee.postServiceCharge()}" update="growl" />
+        
+     </h:panelGrid>
+    </h:form>
 	    
 
 

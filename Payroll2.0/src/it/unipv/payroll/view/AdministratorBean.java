@@ -2,16 +2,20 @@ package it.unipv.payroll.view;
 
 import it.unipv.payroll.controller.EmployeeController;
 import it.unipv.payroll.dao.CredentialDao;
+import it.unipv.payroll.logic.CalendarService;
 import it.unipv.payroll.model.Employee;
 import it.unipv.payroll.model.FlatSalaryEmployee;
 import it.unipv.payroll.model.HourlyEmployee;
 import it.unipv.payroll.model.UnionTable;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -32,6 +36,10 @@ public class AdministratorBean implements Serializable{
 	@Inject
 	CredentialDao credentialDao;
 	
+	@Inject
+	CalendarService calendarService;
+	
+	
 	
 	private int empID; //Used for delete operation
 	private String name;
@@ -41,6 +49,8 @@ public class AdministratorBean implements Serializable{
 	private String unionName;
 	private String type;
 	private String password;
+	private String todayDate;
+	private String result;
 	
 	//Used only for the html interface
 	private String tempType;
@@ -52,6 +62,9 @@ public class AdministratorBean implements Serializable{
 	//For Flat slary employee
 	private double fixedSalary;
 	private double commissionRate;
+	private double amount;
+	
+	private Date date;
 	
 	private List<Employee> employees;
 	
@@ -67,6 +80,7 @@ public class AdministratorBean implements Serializable{
 	 public void init(){
 		 
 		employees=e_controller.findAll();
+		this.todayDate = calendarService.getFormattedToday();
 		 
 	 }
 	
@@ -80,6 +94,9 @@ public class AdministratorBean implements Serializable{
 		this.fixedSalary = 0;
 		this.commissionRate = 0;
 		this.password="";
+		this.amount=0;
+		this.empID=0;
+		this.date=null;
 	}
 
 	public Employee getSelectedEmployee() {
@@ -126,6 +143,44 @@ public class AdministratorBean implements Serializable{
 		System.out.println(type);
 		
 		e_controller.add(type,name,surname,postalAddress,IBAN,union,hourlySalary,fixedSalary,commissionRate,password);
+		
+		resetBean();
+		
+		
+	}
+	
+	public void postServiceCharge(){
+		
+		UnionTable union = null;
+		FacesContext context = FacesContext.getCurrentInstance();
+		
+		if (!unionName.equals("")) {
+			
+			union = e_controller.findUnionByName(unionName);
+			
+			if (union == null) {
+				
+				result = "Wrong Union Name";
+				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Result ",  result) );
+				
+			} else if (!e_controller.validate(union,empID)){
+				
+				result = "Union Name doesn't match the Employee Union Name";
+				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Result ",  result) );
+				
+			} else {
+				
+				e_controller.postServiceCharge(empID,amount,date,union);
+				result = "Union Charge Posted";
+				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Result ",  result) );
+			
+			}
+		} else {
+			
+			result = "Union Name Required";
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Result ",  result) );
+			
+		}
 		
 		resetBean();
 		
@@ -301,6 +356,38 @@ public class AdministratorBean implements Serializable{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getTodayDate() {
+		return todayDate;
+	}
+
+	public void setTodayDate(String todayDate) {
+		this.todayDate = todayDate;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
 	}
 	
 	

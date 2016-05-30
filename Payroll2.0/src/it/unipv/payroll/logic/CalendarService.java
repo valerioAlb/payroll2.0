@@ -1,13 +1,20 @@
 package it.unipv.payroll.logic;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-public class CalendarService {
+public class CalendarService implements Serializable{
 	
+	
+	
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 private Calendar calendar;
 	
 	private Date wrapDate(Calendar c){		

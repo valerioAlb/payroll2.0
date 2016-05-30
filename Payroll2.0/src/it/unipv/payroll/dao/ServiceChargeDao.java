@@ -19,6 +19,10 @@ public class ServiceChargeDao {
 		em.persist(charge);
 	}
 	
+	public void update(ServiceCharge charge) {
+		em.merge(charge);
+	}
+	
 	public List<ServiceCharge> findAll() {
 		List<ServiceCharge> charges = em.createQuery("select p from ServiceCharge p", ServiceCharge.class).getResultList();
 		return charges;

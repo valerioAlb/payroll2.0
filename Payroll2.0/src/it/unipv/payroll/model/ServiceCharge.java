@@ -65,6 +65,24 @@ public class ServiceCharge {
 	public UnionTable getUnion() {
 		return union;
 	}
+
+
+
+	public void setEmpId(int empId) {
+		EmpId = empId;
+	}
+
+
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	
 	
 	

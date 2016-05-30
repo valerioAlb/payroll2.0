@@ -5,6 +5,8 @@ import it.unipv.payroll.controller.LoginController;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -27,6 +29,13 @@ public class LoginBean implements Serializable {
 	public String validateForm(){
 		
 		userType = loginController.validate(EmpId, password);
+		
+		if(userType.equals("nouser")){
+			FacesContext context = FacesContext.getCurrentInstance();
+			String outputmsg = "Invalid user ID or password";
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Credential Error ", outputmsg ) );
+		}
+		
 		return userType;
 		
 	}
