@@ -2,10 +2,12 @@ package it.unipv.payroll.controller;
 
 import it.unipv.payroll.dao.EmployeeDao;
 import it.unipv.payroll.dao.PaymentDAO;
+import it.unipv.payroll.dao.ServiceChargeDao;
 import it.unipv.payroll.dao.TimeCardDao;
 import it.unipv.payroll.logic.CalendarService;
 import it.unipv.payroll.model.HourlyEmployee;
 import it.unipv.payroll.model.Payment;
+import it.unipv.payroll.model.ServiceCharge;
 import it.unipv.payroll.model.TimeCard;
 
 import java.util.List;
@@ -27,6 +29,9 @@ public class HREUserController {
 	
 	@Inject
 	TimeCard timeCard;
+	
+	@Inject
+	ServiceChargeDao sc_dao;
 	
 	@Inject
 	CalendarService calendarService;
@@ -51,6 +56,14 @@ public class HREUserController {
 		timeCardDao.merge(timeCard);
 		System.out.println("Time card posted! -- "+hours);
 		
+	}
+
+	public List<ServiceCharge> findChargesById(int empID) {
+		return sc_dao.findChargesById(empID);
+	}
+
+	public List<TimeCard> findTimeCardsById(int empID) {
+		return timeCardDao.findTimeCardsByEmployee(empID);
 	}
 	
 	

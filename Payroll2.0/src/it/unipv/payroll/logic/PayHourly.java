@@ -44,6 +44,7 @@ public class PayHourly{
 	private List<ServiceCharge> charges;
 	private double total;
 	private String paymethod;
+	private int paymentID;
 	
 	
 	@SuppressWarnings("deprecation")
@@ -71,6 +72,8 @@ public class PayHourly{
 			
 			int numToday = dateToday.getYear()*10000+dateToday.getMonth()*100+dateToday.getDay();
 			
+			System.out.println("LAST PAYED: "+numLast+" TODAY: "+numToday);
+		
 			if (numToday > numLast) {
 				
 				total = 0; 
@@ -102,13 +105,10 @@ public class PayHourly{
 					
 					String initDate = working_days.get(6).toString();
 					String finDate = dateToday.toString();
-					System.out.println("LE due date: "+ initDate + "    "+ finDate);
 					
 					charges = s_dao.findByDate(initDate, finDate);
 					
 					for (ServiceCharge charge : charges) {
-						System.out.println("charge amount "+charge.getAmount());
-						System.out.println("id cazzo "+charge.getEmpId());
 						if (charge.getEmpId() == employee.getEmpId()) {
 							total-=charge.getAmount();
 						}
@@ -117,6 +117,9 @@ public class PayHourly{
 					
 				}
 				
+				if(total==0){
+					return;  //We don't want to load a DB record with null amount of payment
+				}
 				
 				payment.setDate(calendarService.getToday());
 				payment.setEmployee(employee);
@@ -131,11 +134,10 @@ public class PayHourly{
 					paymethod = "pickup";
 				}
 				payment.setPayMethod(paymethod);
-				System.out.println("TOTALEEEEE "+total);
 				
-				p_dao.update(payment);
+				paymentID = p_dao.update(payment);
 				
-				e_dao.setLastPayment(payment.getId(), employee.getEmpId());
+				e_dao.setLastPayment(paymentID, employee.getEmpId());
 			}
 			
 			

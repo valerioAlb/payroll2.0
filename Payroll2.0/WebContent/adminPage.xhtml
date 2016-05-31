@@ -11,10 +11,25 @@
 	
 	<h:body style="color: black; background-color: grey">
 
-	<h2 style="color:yellow">Administrator Page</h2>
+	<h1 style="color:yellow">Administrator Page</h1>
+	
+	<br />
+	<br />
+	
+	<h:form>
+	
+	    <p:panelGrid style="margin:auto;width:30%">
+	    	<h2 style="color:red">RUN PAYROLL FOR TODAY</h2>  
+	    	<p:commandButton action="#{employee.runThePayrollForToday()}" icon="ui-icon-search" value="RUN"/>
+		</p:panelGrid>
+	    
+	</h:form> 
+	
+	<br />
+	<br />
 	
 	<h:form id="form">
-			<p:dataTable id="singleDT" var="emp" value="#{employee.employees}" selectionMode="single" selection="#{employee.selectedEmployee}" rowKey="#{emp.empId}">
+			<p:dataTable id="singleDT" var="emp" value="#{employee.employees}" selectionMode="single" scrollable="true" scrollHeight="150" selection="#{employee.selectedEmployee}" rowKey="#{emp.empId}">
 	        <f:facet name="header">
 	            Employees
 	        </f:facet>
@@ -50,11 +65,24 @@
 	</h:form>
 	<br />
 	<br />
+	
+	<h:form>
+	
+	    <p:panelGrid style="margin:auto;width:30%">
+	    	<h2 style="color:yellow">Update Table</h2>  
+	    	<p:commandButton update=":form:#{employee.init()}" icon="ui-icon-search" value="Update"/>
+		</p:panelGrid>
+	    
+	</h:form> 
+	
+	<br />
+	<br />
+	
 	<h:form>
 	
 	    <p:panelGrid style="margin:auto;width:30%">
 	    	<h2 style="color:yellow">Add a new employee</h2>  
-	    	<p:commandButton update=":form:#{employee.init()}" icon="ui-icon-search" value="Update"/>
+	    	
 			<p:commandButton icon="ui-icon-trash-1" value="Add Hourly" label="addHourly" action="addHourly" actionListener="#{employee.setHourly()}"   />
 			<p:commandButton icon="ui-icon-trash-1" value="Add Flat" label="addFlat" action="addFlat" actionListener="#{employee.setFlat()}"   />	    
 	    </p:panelGrid>
@@ -79,13 +107,13 @@
         <p:inputMask required = "true" id="amount" value="#{employee.amount}" />
         
         <p:outputLabel for="restricted" value="Date: " />
-        <p:calendar id="restricted" value="#{employee.date}" maxdate="#{employee.todayDate}}" />
+        <p:calendar required = "true" id="restricted" value="#{employee.date}" maxdate="#{employee.todayDate}}" />
         
         <p:outputLabel for="unionName" value="Union Name:  " />
-        <p:inputMask id="unionName" value="#{employee.unionName}" />
+        <p:inputMask required = "true" id="unionName" value="#{employee.unionName}" />
         
         <p:commandButton value="Reset" type="reset" />
-        <p:commandButton icon="ui-icon-trash-1" value="Post a Sales Receipt" label="PostReceipt" action="#{employee.postServiceCharge()}" update="growl" />
+        <p:commandButton icon="ui-icon-trash-1" value="Post a Service Charge" label="PostSC" action="#{employee.postServiceCharge()}" update="growl" />
         
      </h:panelGrid>
     </h:form>

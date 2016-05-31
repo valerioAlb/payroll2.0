@@ -24,6 +24,7 @@ public class PayFlat{
 	private List<SalesReceipt> receipts;
 	private double total;
 	private String paymethod;
+	private int paymentID;
 	
 	@Inject
 	EmployeeDao e_dao;
@@ -48,6 +49,7 @@ public class PayFlat{
 	Payment payment;
 
 	
+	@SuppressWarnings("deprecation")
 	public void pay() {
 		
 		Date dateToday = calendarService.getToday();
@@ -60,32 +62,52 @@ public class PayFlat{
 			
 			
 			for (FlatSalaryEmployee employee : employees) {
-				total = 0;
 				
-				total += employee.getFixedSalary();
-				
-				if (employee.getUnion() != null) {
-					double dueRate = employee.getUnion().getDuesRate();
-					total-= dueRate*total;
-					
-					String initDate = working_days.get(working_days.size()-1).toString();
-					String finDate = dateToday.toString();
-					System.out.println("LE due date: "+ initDate + "    "+ finDate);
-					
-					charges = s_dao.findByDate(initDate, finDate);
-					
-					for (ServiceCharge charge : charges) {
-						System.out.println("charge amount "+charge.getAmount());
-						System.out.println("id cazzo "+charge.getEmpId());
-						if (charge.getEmpId() == employee.getEmpId()) {
-							total-=charge.getAmount();
-						}
-					}
-					
-					
+				int numLast;
+				Date lastPaymentDate;
+				if (employee.getLastPaymentId() != 0) {
+					Payment lastPayment = p_dao.findPaymentById(employee.getLastPaymentId());
+					lastPaymentDate = lastPayment.getDate();
+					numLast =  lastPaymentDate.getYear()*10000+lastPaymentDate.getMonth()*100+lastPaymentDate.getDay();
+				} else {
+					numLast=0;
 				}
 				
-				loadPayment(employee,"Salary");
+				int numToday = dateToday.getYear()*10000+dateToday.getMonth()*100+dateToday.getDay();
+				
+				System.out.println("LAST PAYED: "+numLast+" TODAY: "+numToday);
+			
+				if (numToday > numLast) {
+					
+					total = 0;
+					
+					total += employee.getFixedSalary();
+					
+					if (employee.getUnion() != null) {
+						double dueRate = employee.getUnion().getDuesRate();
+						total-= dueRate*total;
+						
+						String initDate = working_days.get(working_days.size()-1).toString();
+						String finDate = dateToday.toString();
+						System.out.println("LE due date: "+ initDate + "    "+ finDate);
+						
+						charges = s_dao.findByDate(initDate, finDate);
+						
+						for (ServiceCharge charge : charges) {
+							System.out.println("charge amount "+charge.getAmount());
+							System.out.println("id cazzo "+charge.getEmpId());
+							if (charge.getEmpId() == employee.getEmpId()) {
+								total-=charge.getAmount();
+							}
+						}
+						
+						
+					}
+					
+					loadPayment(employee,"Salary");
+				}
+				
+				
 				
 			}
 			
@@ -96,17 +118,35 @@ public class PayFlat{
 			
 			for (FlatSalaryEmployee employee : employees) {
 				
-				total = 0;
-				String initDate = lastTwoWeeks.get(lastTwoWeeks.size()-1).toString();
-				String finDate = dateToday.toString();
-				
-				receipts = salesRDao.findReceiptsByEmployeeAndByDate(employee.getEmpId(),initDate,finDate);
-				
-				for (SalesReceipt receipt : receipts) {
-					total += receipt.getAmount() * employee.getCommissionRate();
+				int numLast;
+				Date lastPaymentDate;
+				if (employee.getLastPaymentId() != 0) {
+					Payment lastPayment = p_dao.findPaymentById(employee.getLastPaymentId());
+					lastPaymentDate = lastPayment.getDate();
+					numLast =  lastPaymentDate.getYear()*10000+lastPaymentDate.getMonth()*100+lastPaymentDate.getDay();
+				} else {
+					numLast=0;
 				}
 				
-				loadPayment(employee,"Commission");
+				int numToday = dateToday.getYear()*10000+dateToday.getMonth()*100+dateToday.getDay();
+				
+				System.out.println("LAST PAYED: "+numLast+" TODAY: "+numToday);
+			
+				if (numToday > numLast) {
+					
+					total = 0;
+					String initDate = lastTwoWeeks.get(lastTwoWeeks.size()-1).toString();
+					String finDate = dateToday.toString();
+					
+					receipts = salesRDao.findReceiptsByEmployeeAndByDate(employee.getEmpId(),initDate,finDate);
+					
+					for (SalesReceipt receipt : receipts) {
+						total += receipt.getAmount() * employee.getCommissionRate();
+					}
+					
+					loadPayment(employee,"Commission");
+					
+				}
 				
 				
 			}
@@ -118,6 +158,11 @@ public class PayFlat{
 
 
 	private void loadPayment(FlatSalaryEmployee employee,String payType) {
+		
+		if(total==0){
+			return;  //We don't want to load a DB record with null amount of payment
+		}
+		
 		payment.setDate(calendarService.getToday());
 		payment.setEmployee(employee);
 		payment.setPayAmount(total);
@@ -133,9 +178,9 @@ public class PayFlat{
 		payment.setPayMethod(paymethod);
 		System.out.println("TOTALEEEEE "+total);
 		
-		p_dao.update(payment);
+		paymentID = p_dao.update(payment);
 		
-		e_dao.setLastPayment(payment.getId(), employee.getEmpId());
+		e_dao.setLastPayment(paymentID, employee.getEmpId());
 	}
 
 }

@@ -6,6 +6,8 @@ import it.unipv.payroll.dao.EmployeeDao;
 import it.unipv.payroll.dao.ServiceChargeDao;
 import it.unipv.payroll.dao.UnionDao;
 import it.unipv.payroll.logic.CalendarService;
+import it.unipv.payroll.logic.PayFlat;
+import it.unipv.payroll.logic.PayHourly;
 import it.unipv.payroll.model.Credentials;
 import it.unipv.payroll.model.Employee;
 import it.unipv.payroll.model.FlatSalaryEmployee;
@@ -52,6 +54,12 @@ public class EmployeeController {
 	
 	@Inject
 	CalendarService calendarService;
+	
+	@Inject
+	PayHourly payHourly;
+	
+	@Inject
+	PayFlat payFlat;
 
 	public void add(String type, String name, String surname, String postalAddress,
 			String iBAN, UnionTable union, float hourlySalary,
@@ -152,6 +160,12 @@ public class EmployeeController {
 			return false;
 		}
 		
+		
+	}
+
+	public void runPayroll() {
+		payHourly.pay();
+		payFlat.pay();
 		
 	}
 	

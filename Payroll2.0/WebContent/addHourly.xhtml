@@ -18,6 +18,9 @@
 	</h:form>
 	
 		<h:form id="hreForm" style="color:yellow">
+		
+			<p:growl id="growl" showDetail="true" sticky="true" /> 
+			
 			<h:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel for="name" value="Name: " />
 			    <p:inputMask required = "true" id="name" value="#{employee.name}"/>
@@ -41,7 +44,7 @@
 		        <p:inputMask required = "true" id="password" value="#{employee.password}"/>
 			 
 		        <p:commandButton value="Reset" type="reset" />
-			    <p:commandButton  action="#{employee.addEmployee()}" value="Submit"/>
+			    <p:commandButton  action="#{employee.addEmployee()}" value="Submit" update="growl"/>
 			 </h:panelGrid>
 		</h:form>
 	 

@@ -18,8 +18,9 @@ public class PaymentDAO {
 		em.persist(payment);
 	}
 	
-	public void update(Payment payment) {
-		em.merge(payment);
+	public int update(Payment payment) {
+		payment = em.merge(payment);
+		return payment.getId();
 	}
 	
 	public List<Payment> findAll() {

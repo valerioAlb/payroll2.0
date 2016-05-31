@@ -131,18 +131,30 @@ public class AdministratorBean implements Serializable{
 
 	public void addEmployee(){
 		
+		FacesContext context = FacesContext.getCurrentInstance();
 		
 		System.out.println(type);
 		
 		UnionTable union = null;
 		if (!unionName.equals("")) {
+			
 			union = e_controller.findUnionByName(unionName);
+			
+			if(union==null){
+				result = "Wrong Union Name Typed";
+				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"User not added ",  result) );
+				resetBean();
+				return;
+			}
 		}
 		
 		
 		System.out.println(type);
 		
 		e_controller.add(type,name,surname,postalAddress,IBAN,union,hourlySalary,fixedSalary,commissionRate,password);
+		
+		result = "User "+name +" "+surname+" correctly added!";
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Result ",  result) );
 		
 		resetBean();
 		
@@ -171,7 +183,7 @@ public class AdministratorBean implements Serializable{
 			} else {
 				
 				e_controller.postServiceCharge(empID,amount,date,union);
-				result = "Union Charge Posted";
+				result = "Union Service Charge Posted";
 				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Result ",  result) );
 			
 			}
@@ -210,8 +222,18 @@ public class AdministratorBean implements Serializable{
 		
 		System.out.println("MODIFIING "+selectedEmployee.getEmpType());
 		UnionTable union = null;
+		FacesContext context = FacesContext.getCurrentInstance();
+		
 		if (!unionName.equals("")) {
+			
 			union = e_controller.findUnionByName(unionName);
+			
+			if(union==null){
+				result = "Wrong Union Name Typed";
+				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"User not modified ",  result) );
+				resetBean();
+				return;
+			}
 		}
 		
 		if (selectedEmployee.getEmpType().equals("HRE")) {
@@ -222,6 +244,13 @@ public class AdministratorBean implements Serializable{
 			e_controller.modifyEployee(selectedFlatEmployee,password);
 		}
 		
+		result = "User "+name+" "+surname+" correctly modified";
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Completed ",  result) );
+		resetBean();
+	}
+	
+	public void runThePayrollForToday(){
+		e_controller.runPayroll();
 	}
 	
 	public void setHourly(){

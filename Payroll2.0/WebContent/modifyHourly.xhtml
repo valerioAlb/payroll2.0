@@ -18,12 +18,15 @@
 	</h:form>
 	
 		<h:form id="hreModForm" style="color:yellow">
+		
+			<p:growl id="growl" showDetail="true" sticky="true" /> 
+		
 			<h:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel for="name" value="Name: " />
-			    <p:inputMask id="name" value="#{employee.selectedHourlyEmployee.name}"/>
+			    <p:inputMask required = "true" id="name" value="#{employee.selectedHourlyEmployee.name}"/>
 			 
 			    <p:outputLabel for="surname" value="Surname: " />
-			    <p:inputMask id="surname" value="#{employee.selectedHourlyEmployee.surname}" />
+			    <p:inputMask required = "true" id="surname" value="#{employee.selectedHourlyEmployee.surname}" />
 			 
 			    <p:outputLabel for="postal" value="Postal Address:" />
 			    <p:inputMask id="postal" value="#{employee.selectedHourlyEmployee.postalAddress}" />
@@ -32,16 +35,16 @@
 		        <p:inputMask id="iban" value="#{employee.selectedHourlyEmployee.IBAN}" />
 							       		        
 		        <p:outputLabel for="salary" value="Hourly Salary: " />
-		        <p:inputMask id="salary" value="#{employee.selectedHourlyEmployee.hourlySalary}" />
+		        <p:inputMask required = "true" id="salary" value="#{employee.selectedHourlyEmployee.hourlySalary}" />
 			        
 		        <p:outputLabel for="union" value="Union Name: " />
 		        <p:inputMask id="union" value="#{employee.unionName}"/>
 		        
 		        <p:outputLabel for="password" value="User Password: " />
-		        <p:inputMask id="password" value="#{employee.password}"/>
+		        <p:inputMask required = "true" id="password" value="#{employee.password}"/>
 			 
 		        <p:commandButton value="Reset" type="reset" />
-			    <p:commandButton  action="#{employee.modifyEmployee()}" value="Submit"/>
+			    <p:commandButton  action="#{employee.modifyEmployee()}" value="Submit" update="growl"/>
 			 </h:panelGrid>
 		</h:form>
 	 

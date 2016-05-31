@@ -51,6 +51,29 @@
 	</table> 
 	<br />
 	<br />
+	
+	<h2 style="color:yellow"> Post a new Sales Receipt</h2>	
+	<h:form>
+    <h:panelGrid columns="2" cellpadding="5">
+        
+        <p:outputLabel for="restricted" value="Date: " />
+        <p:calendar id="restricted" value="#{FLEuserbean.date}" maxdate="#{FLEuserbean.todayDate}" />
+        
+        <p:outputLabel for="amount" value="Amount: " />
+        <p:inputMask required = "true" id="amount" value="#{FLEuserbean.amount}" />
+        
+        <p:commandButton icon="ui-icon-trash-1" value="Post a Sales Receipt" label="PostReceipt" action="#{FLEuserbean.postSalesReceipt()}" />
+        
+     </h:panelGrid>
+     </h:form>
+     
+    <br />
+	<br />
+	
+	<h2 style="color:yellow"> Check Your History</h2>	
+	
+	<br />
+	
 	<p:dataTable var="payment" value="#{FLEuserbean.payments}">
 		<f:facet name="header">
 	            Employee Payments
@@ -66,25 +89,59 @@
 	    <p:column headerText="Pay Method">
 	        <h:outputText value="#{payment.payMethod}" />
 	    </p:column>
+
+		<p:column headerText="Payment Type">
+	        <h:outputText value="#{payment.payType}" />
+	    </p:column>
+	</p:dataTable>
+			
+	
+	<br />
+	<br />
+	
+	<h:form id="form">
+		<p:dataTable var="salesreceipt" value="#{FLEuserbean.receipts}">
+			<f:facet name="header">
+		            Sales Receipts Posted
+		    </f:facet>
+		    <p:column headerText="Date">
+		        <h:outputText value="#{salesreceipt.date}" />
+		    </p:column>
+		 
+		    <p:column headerText="Amount">
+		        <h:outputText value="#{salesreceipt.amount}" />
+		    </p:column>
+		    
+		    <f:facet name="footer">
+				<p:commandButton update=":form:#{FLEuserbean.updateReceipts()}" icon="ui-icon-search" value="Update"/>				
+	        </f:facet>
+		    
+		   
+		</p:dataTable>
+	</h:form>
+	
+	
+	<br />
+	<br />
+	
+	<p:dataTable var="serviceCharge" value="#{FLEuserbean.charges}">
+		<f:facet name="header">
+	            Union Service Charges Posted
+	    </f:facet>
+	    <p:column headerText="Date">
+	        <h:outputText value="#{serviceCharge.date}" />
+	    </p:column>
+	 
+	    <p:column headerText="Amount">
+	        <h:outputText value="#{serviceCharge.amount}" />
+	    </p:column>
+	    
+	    <p:column headerText="Union Name">
+	        <h:outputText value="#{serviceCharge.union.name}" />
+	    </p:column>
 	    
 	</p:dataTable>
 	
-	<h:form>
-	    <h:panelGrid columns="2" cellpadding="5">
-	        
-	        <p:outputLabel for="restricted" value="Date: " />
-	        <p:calendar id="restricted" value="#{FLEuserbean.date}" maxdate="#{FLEuserbean.todayDate}" />
-	        
-	        <p:outputLabel for="amount" value="Amount: " />
-	        <p:inputMask required = "true" id="amount" value="#{FLEuserbean.amount}" />
-	        
-	        <p:commandButton icon="ui-icon-trash-1" value="Post a Sales Receipt" label="PostReceipt" action="#{FLEuserbean.postSalesReceipt()}" />
-	        
-	     </h:panelGrid>
-     </h:form>
-	
-	
-		
 	 
 	</h:body>
 	

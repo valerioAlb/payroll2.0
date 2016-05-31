@@ -3,6 +3,8 @@ package it.unipv.payroll.view;
 import it.unipv.payroll.controller.HREUserController;
 import it.unipv.payroll.model.HourlyEmployee;
 import it.unipv.payroll.model.Payment;
+import it.unipv.payroll.model.ServiceCharge;
+import it.unipv.payroll.model.TimeCard;
 
 import java.io.Serializable;
 import java.util.List;
@@ -25,8 +27,10 @@ public class HREUserPageBean implements Serializable{
 	@Inject
 	HREUserController userController;
 	
-	HourlyEmployee hourlyEmployee;
-	List<Payment> payments;
+	private HourlyEmployee hourlyEmployee;
+	private List<Payment> payments;
+	private List<TimeCard> timeCards;
+	private List<ServiceCharge> serviceCharges;
 	
 	private int empID;
 	private float numHours;
@@ -41,6 +45,8 @@ public class HREUserPageBean implements Serializable{
 		System.out.println("Init! empID: "+empID);
 		this.hourlyEmployee = userController.findEmployeeById(empID);
 		this.payments=userController.findEmployeePayments(empID);
+		this.serviceCharges = userController.findChargesById(empID);
+		this.timeCards = userController.findTimeCardsById(empID);
 		System.out.println("USER NAME: "+hourlyEmployee.getName());
 		 
 	 }
@@ -48,6 +54,10 @@ public class HREUserPageBean implements Serializable{
 	public void postTimeCard(){
 		userController.postTimeCard(hourlyEmployee,numHours);
 		numHours = 0;
+	}
+	
+	public void updateTimeCards(){
+		this.timeCards = userController.findTimeCardsById(empID);
 	}
 	
 	public int getEmpID(FacesContext fc){
@@ -80,6 +90,22 @@ public class HREUserPageBean implements Serializable{
 
 	public void setNumHours(float numHours) {
 		this.numHours = numHours;
+	}
+
+	public List<TimeCard> getTimeCards() {
+		return timeCards;
+	}
+
+	public void setTimeCards(List<TimeCard> timeCards) {
+		this.timeCards = timeCards;
+	}
+
+	public List<ServiceCharge> getServiceCharges() {
+		return serviceCharges;
+	}
+
+	public void setServiceCharges(List<ServiceCharge> serviceCharges) {
+		this.serviceCharges = serviceCharges;
 	}
 	
 	

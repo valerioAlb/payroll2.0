@@ -18,6 +18,9 @@
 	</h:form>
 	
 		<h:form id="fleModForm" style="color:yellow">
+		
+				<p:growl id="growl" showDetail="true" sticky="true" /> 
+		
 			    <h:panelGrid columns="2" cellpadding="5">
 			        <p:outputLabel for="name" value="Name: " />
 			        <p:inputMask required = "true" id="name" value="#{employee.selectedFlatEmployee.name}"/>
@@ -41,10 +44,10 @@
 			        <p:inputMask id="union" value="#{employee.unionName}"/>
 			        
 			        <p:outputLabel for="password" value="User Password: " />
-			        <p:inputMask id="password" value="#{employee.password}"/>
+			        <p:inputMask required = "true" id="password" value="#{employee.password}"/>
 			 
 			        <p:commandButton value="Reset" type="reset" />
-			        <p:commandButton action="#{employee.modifyEmployee()}" value="Submit"/>
+			        <p:commandButton action="#{employee.modifyEmployee()}" value="Submit" update="growl"/>
 			    </h:panelGrid>
 			 </h:form>
 	 

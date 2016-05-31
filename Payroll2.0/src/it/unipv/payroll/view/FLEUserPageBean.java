@@ -4,6 +4,8 @@ import it.unipv.payroll.controller.FLEUserController;
 import it.unipv.payroll.logic.CalendarService;
 import it.unipv.payroll.model.FlatSalaryEmployee;
 import it.unipv.payroll.model.Payment;
+import it.unipv.payroll.model.SalesReceipt;
+import it.unipv.payroll.model.ServiceCharge;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -30,8 +32,10 @@ public class FLEUserPageBean implements Serializable{
 	@Inject
 	CalendarService calendarService;
 	
-	FlatSalaryEmployee flatSalaryEmployee;
-	List<Payment> payments;
+	private FlatSalaryEmployee flatSalaryEmployee;
+	private List<Payment> payments;
+	private List<SalesReceipt> receipts;
+	private List<ServiceCharge> charges;
 	
 	
 	private int empID;
@@ -46,12 +50,19 @@ public class FLEUserPageBean implements Serializable{
 		this.empID = getEmpID(fc);
 		this.flatSalaryEmployee = userController.findEmployeeById(empID);
 		this.payments=userController.findEmployeePayments(empID);
+		this.charges=userController.findChargesByEmpId(empID);
+		this.receipts=userController.findReceiptsByEmpID(empID);
 		this.todayDate = calendarService.getFormattedToday();
 		System.out.println("DATE: "+todayDate);
 		System.out.println("USER NAME: "+flatSalaryEmployee.getName());
 		
 		 
 	 }
+	 
+	public void updateReceipts(){
+
+		this.receipts=userController.findReceiptsByEmpID(empID);
+	} 
 	
 	public int getEmpID(FacesContext fc){
 		
@@ -107,6 +118,22 @@ public class FLEUserPageBean implements Serializable{
 
 	public void setTodayDate(String todayDate) {
 		this.todayDate = todayDate;
+	}
+
+	public List<SalesReceipt> getReceipts() {
+		return receipts;
+	}
+
+	public void setReceipts(List<SalesReceipt> receipts) {
+		this.receipts = receipts;
+	}
+
+	public List<ServiceCharge> getCharges() {
+		return charges;
+	}
+
+	public void setCharges(List<ServiceCharge> charges) {
+		this.charges = charges;
 	}
 
 	

@@ -47,6 +47,25 @@
 	</table> 
 	<br />
 	<br />
+	
+	<h2 style="color:yellow"> Post a new Time Card</h2>	
+	<h:form>
+	    <h:panelGrid columns="2" cellpadding="5">
+	 
+	        <p:outputLabel for="numHours" value="Number of hours: " />
+	        <p:inputMask required = "true" id="numHours" value="#{HREuserbean.numHours}" />
+	 
+			<p:commandButton icon="ui-icon-trash-1" value="Post a Time Card" label="PostTimecard" action="#{HREuserbean.postTimeCard()}" />
+	    </h:panelGrid>    
+	</h:form>
+	
+	<br />
+	<br />
+	
+	<h2 style="color:yellow"> Check Your History</h2>	
+	
+	<br />
+	
 	<p:dataTable var="payment" value="#{HREuserbean.payments}">
 		<f:facet name="header">
 	            Employee Payments
@@ -67,19 +86,48 @@
 	
 	<br />
 	<br />
-	
-	<h:form>
-	    <h:panelGrid columns="2" cellpadding="5">
-	 
-	        <p:outputLabel for="numHours" value="Number of hours: " />
-	        <p:inputMask required = "true" id="numHours" value="#{HREuserbean.numHours}" />
-	 
-			<p:commandButton icon="ui-icon-trash-1" value="Post a Time Card" label="PostTimecard" action="#{HREuserbean.postTimeCard()}" />
-	    </h:panelGrid>    
+	<h:form id="form">
+		<p:dataTable var="timecard" value="#{HREuserbean.timeCards}">
+			<f:facet name="header">
+		            Time Cards Posted
+		    </f:facet>
+		    <p:column headerText="Date">
+		        <h:outputText value="#{timecard.date}" />
+		    </p:column>
+		 
+		    <p:column headerText="Working Hours">
+		        <h:outputText value="#{timecard.hours}" />
+		    </p:column>
+		    
+		    <f:facet name="footer">
+				<p:commandButton update=":form:#{HREuserbean.updateTimeCards()}" icon="ui-icon-search" value="Update"/>				
+	        </f:facet>
+		    
+		   
+		</p:dataTable>
 	</h:form>
 	
+	<br />
+	<br />
+	
+	<p:dataTable var="serviceCharge" value="#{HREuserbean.serviceCharges}">
+		<f:facet name="header">
+	            Union Service Charges Posted
+	    </f:facet>
+	    <p:column headerText="Date">
+	        <h:outputText value="#{serviceCharge.date}" />
+	    </p:column>
 	 
-		
+	    <p:column headerText="Amount">
+	        <h:outputText value="#{serviceCharge.amount}" />
+	    </p:column>
+	    
+	    <p:column headerText="Union Name">
+	        <h:outputText value="#{serviceCharge.union.name}" />
+	    </p:column>
+	    
+	</p:dataTable>
+
 	 
 	</h:body>
 	
