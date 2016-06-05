@@ -40,9 +40,5 @@ public class PaymentDAO {
 		
 	}
 	
-	public void cleanTable() {
-		em.createQuery("DELETE FROM Payment").executeUpdate();
-		
-	}
 
 }

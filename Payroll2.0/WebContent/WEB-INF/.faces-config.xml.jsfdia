@@ -7,8 +7,8 @@
    <PROCESS-ITEM-OUTPUT ID="addHourly::#addHourly.xhtml" NAME="output"
     PATH="/addHourly.xhtml" TARGET="rules:#addHourly.xhtml"
     TITLE="addHourly" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="addFlat::#addFlat.xhtml" NAME="output1"
-    PATH="/addFlat.xhtml" TARGET="rules:#addFlat.xhtml" TITLE="addFlat" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="logout::#login.xhtml" NAME="output1"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="FLE::#modifyFlat.xhtml" NAME="output2"
     PATH="/modifyFlat.xhtml" TARGET="rules:#modifyFlat.xhtml"
     TITLE="FLE" model-entity="JSFProcessItemOutput"/>
@@ -65,7 +65,19 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#FLEuserPage.xhtml" PATH="/FLEuserPage.xhtml"
-  SHAPE="352,753,0,0" model-entity="JSFProcessGroup"/>
+  SHAPE="352,753,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#FLEuserPage.xhtml:0" NAME="item"
+   PATH="/FLEuserPage.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="logout::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#HREuserPage.xhtml" PATH="/HREuserPage.xhtml"
-  SHAPE="352,641,0,0" model-entity="JSFProcessGroup"/>
+  SHAPE="352,641,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#HREuserPage.xhtml:0" NAME="item"
+   PATH="/HREuserPage.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="logout::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

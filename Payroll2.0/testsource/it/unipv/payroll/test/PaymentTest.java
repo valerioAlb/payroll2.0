@@ -1,5 +1,6 @@
 package it.unipv.payroll.test;
 
+import it.unipv.payroll.dao.CleanerDao;
 import it.unipv.payroll.dao.EmployeeDao;
 import it.unipv.payroll.dao.PaymentDAO;
 import it.unipv.payroll.model.Employee;
@@ -13,6 +14,7 @@ import javax.inject.Inject;
 
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -24,6 +26,16 @@ public class PaymentTest extends ArquillianTest {
 	
 	@Inject
 	EmployeeDao e_dao;
+	
+	@Inject
+	CleanerDao cleanerDao;
+	
+	@Before
+	public void cleanup() {
+		
+		cleanerDao.cleanAll();
+	
+	}
 	
 	@SuppressWarnings("deprecation")
 	@Test

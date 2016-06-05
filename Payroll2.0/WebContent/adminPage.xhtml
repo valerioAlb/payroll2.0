@@ -13,6 +13,10 @@
 
 	<h1 style="color:yellow">Administrator Page</h1>
 	
+	 <h:form>
+		<p:commandButton value = "Logout" label="logout" action="logout" />
+	</h:form>
+	
 	<br />
 	<br />
 	
@@ -29,6 +33,7 @@
 	<br />
 	
 	<h:form id="form">
+	
 			<p:dataTable id="singleDT" var="emp" value="#{employee.employees}" selectionMode="single" scrollable="true" scrollHeight="150" selection="#{employee.selectedEmployee}" rowKey="#{emp.empId}">
 	        <f:facet name="header">
 	            Employees

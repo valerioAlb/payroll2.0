@@ -57,21 +57,6 @@ private Calendar calendar;
 		return false;
 	}
 	
-	public boolean isSaturday() {
-		calendar = new GregorianCalendar();
-		// check if the day is friday
-		if (calendar.get(Calendar.DAY_OF_WEEK) == 7)
-			return true;
-		return false;
-	}
-
-	public boolean isSunday() {
-		calendar = new GregorianCalendar();
-		// check if the day is friday
-		if (calendar.get(Calendar.DAY_OF_WEEK) == 1)
-			return true;
-		return false;
-	}
 	
 	public boolean d1ChangeMounth() {
 		calendar = new GregorianCalendar();
@@ -95,18 +80,11 @@ private Calendar calendar;
 		return false;
 	}
 
-	public boolean isWeekNumberPair() {
+	public boolean isWeekNumberEven() {
 		calendar = new GregorianCalendar();
 		int week_number = calendar.get(Calendar.WEEK_OF_YEAR);
 		
 		if(week_number%2 == 0)
-			return true;
-		return false;
-	}
-	
-	public boolean isLastDayOfYear(){
-		calendar = new GregorianCalendar();
-		if(calendar.get(Calendar.DAY_OF_YEAR) == 365)
 			return true;
 		return false;
 	}

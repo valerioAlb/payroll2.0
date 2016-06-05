@@ -22,21 +22,10 @@ public class TimeCardDao {
 		em.merge(timeCard);
 	}
 	
-	public List<TimeCard> findAll() {
-		List<TimeCard> timeCards = em.createQuery("select p from TimeCard p", TimeCard.class).getResultList();
-		return timeCards;
-	}
-	
 	public List<TimeCard> findTimeCardsByEmployee(int EmpId) {
 		List<TimeCard> timeCards = em.createQuery("select p from TimeCard p where EmpId = "+EmpId, TimeCard.class).getResultList();
 		return timeCards;
 	}
 	
-	
-
-	public void cleanTable() {
-		em.createQuery("DELETE FROM TimeCard").executeUpdate();
-		
-	}
 
 }

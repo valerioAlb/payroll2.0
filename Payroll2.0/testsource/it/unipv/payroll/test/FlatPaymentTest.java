@@ -73,8 +73,8 @@ public class FlatPaymentTest extends ArquillianTest{
 		e_dao.add(employee1);
 		e_dao.add(employee2);
 		
-		Date date1 = new Date(2016 -1900,05-1,23);
-		Date date2 = new Date(2016 -1900,05-1,22);
+		Date date1 = new Date(2016 -1900,05-1,30);
+		Date date2 = new Date(2016 -1900,05-1,31);
 		
 		SalesReceipt receipt1 = new SalesReceipt(date1, 400);
 		SalesReceipt receipt2 = new SalesReceipt(date1, 500);
@@ -88,8 +88,8 @@ public class FlatPaymentTest extends ArquillianTest{
 		salesRDao.add(receipt2);
 		salesRDao.add(receipt3);
 		
-		ServiceCharge charge1 = new ServiceCharge(employee1.getEmpId(), 30, new Date(2016-1900,05-1,24));
-		ServiceCharge charge2 = new ServiceCharge(employee1.getEmpId(), 24, new Date(2016-1900,05-1,23));
+		ServiceCharge charge1 = new ServiceCharge(employee1.getEmpId(), 30, new Date(2016-1900,05-1,30));
+		ServiceCharge charge2 = new ServiceCharge(employee1.getEmpId(), 24, new Date(2016-1900,05-1,31));
 		
 		charge1.setUnion(union1);
 		charge2.setUnion(union1);

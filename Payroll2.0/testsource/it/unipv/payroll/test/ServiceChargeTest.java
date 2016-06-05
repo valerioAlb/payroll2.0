@@ -1,8 +1,5 @@
 package it.unipv.payroll.test;
 
-import java.sql.Date;
-import java.util.List;
-
 import it.unipv.payroll.dao.CleanerDao;
 import it.unipv.payroll.dao.EmployeeDao;
 import it.unipv.payroll.dao.ServiceChargeDao;
@@ -12,6 +9,9 @@ import it.unipv.payroll.model.FlatSalaryEmployee;
 import it.unipv.payroll.model.HourlyEmployee;
 import it.unipv.payroll.model.ServiceCharge;
 import it.unipv.payroll.model.UnionTable;
+
+import java.sql.Date;
+import java.util.List;
 
 import javax.inject.Inject;
 

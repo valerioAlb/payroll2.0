@@ -22,25 +22,11 @@ public class SalesRDao {
 		em.merge(receipt);
 	}
 	
-	public List<SalesReceipt> findAll() {
-		List<SalesReceipt> receipts = em.createQuery("select p from SalesReceipt p", SalesReceipt.class).getResultList();
-		return receipts;
-	}
-	
 	public List<SalesReceipt> findReceiptsByEmployee(int EmpId) {
 		List<SalesReceipt> receipts = em.createQuery("select p from SalesReceipt p where EmpId = "+EmpId, SalesReceipt.class).getResultList();
 		return receipts;
 	}
 	
-	
-
-	public void cleanTable() {
-		
-		
-		em.createQuery("DELETE FROM SalesReceipt").executeUpdate();
-		
-		
-	}
 
 	public List<SalesReceipt> findReceiptsByEmployeeAndByDate(int empId,String initDate, String finDate) {
 		

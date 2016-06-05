@@ -43,12 +43,6 @@ public class EmployeeDao {
 	public void setLastPayment(int payId,int EmpId) {
 		em.createQuery("UPDATE Employee set lastPaymentId = "+payId+" WHERE EmpId = "+EmpId).executeUpdate();
 	}
-
-	public void cleanTable() {
-		
-		em.createQuery("DELETE FROM Employee").executeUpdate();
-		
-	}
 	
 	public Employee findEmployeeById(int EmpId) {
 		Employee employee = em.createQuery("select p from Employee p where EmpId = "+EmpId, Employee.class).getSingleResult();

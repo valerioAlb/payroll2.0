@@ -1,6 +1,6 @@
 package it.unipv.payroll.view;
 
-import it.unipv.payroll.controller.EmployeeController;
+import it.unipv.payroll.controller.AdminController;
 import it.unipv.payroll.dao.CredentialDao;
 import it.unipv.payroll.logic.CalendarService;
 import it.unipv.payroll.model.Employee;
@@ -31,7 +31,7 @@ public class AdministratorBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Inject
-	EmployeeController e_controller;
+	AdminController e_controller;
 	
 	@Inject
 	CredentialDao credentialDao;
@@ -207,7 +207,13 @@ public class AdministratorBean implements Serializable{
 	}
 	
 	public void deleteEmployee(){
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		
 		e_controller.deleteEmployee(selectedEmployee.getEmpId());
+		
+		result = "User "+name+" "+surname+" correctly deletd";
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Done! ",  result) );
 		
 	}
 	

@@ -33,12 +33,6 @@ public class ServiceChargeDao {
 		List<ServiceCharge> charges = em.createQuery(query, ServiceCharge.class).getResultList();
 		return charges;
 	}
-	
-	
-	public void cleanTable() {
-		em.createQuery("DELETE FROM ServiceCharge").executeUpdate();
-		
-	}
 
 	public List<ServiceCharge> findChargesById(int empID) {
 		String query ="select p from ServiceCharge p WHERE EmpId = "+empID;

@@ -51,14 +51,6 @@ public class UnionTable{
 	}
 
 	
-	public void setDuesRate(double duesRate) {
-		this.duesRate = duesRate;
-	}
-
-	public List<Employee> getEmployees() {
-		return employees;
-	}
-	
 	
 	
 	

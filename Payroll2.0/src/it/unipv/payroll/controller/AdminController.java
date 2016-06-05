@@ -23,7 +23,7 @@ import javax.inject.Inject;
 
 
 @Stateless
-public class EmployeeController {
+public class AdminController {
 	
 	@Inject 
 	EmployeeDao e_dao;
@@ -61,7 +61,7 @@ public class EmployeeController {
 	@Inject
 	PayFlat payFlat;
 
-	public void add(String type, String name, String surname, String postalAddress,
+	public int add(String type, String name, String surname, String postalAddress,
 			String iBAN, UnionTable union, float hourlySalary,
 			double fixedSalary, double commissionRate,String password) {
 		
@@ -99,6 +99,8 @@ public class EmployeeController {
 		System.out.println("The id of the last employee inserted is: "+id);
 		credentials.setEmployee(e_dao.findEmployeeById(id));
 		credentialDao.update(credentials);
+		
+		return id;
 		
 	}
 

@@ -1,12 +1,12 @@
 package it.unipv.payroll.test;
 
-import java.util.List;
-
 import it.unipv.payroll.dao.CleanerDao;
 import it.unipv.payroll.dao.EmployeeDao;
 import it.unipv.payroll.model.Employee;
 import it.unipv.payroll.model.FlatSalaryEmployee;
 import it.unipv.payroll.model.HourlyEmployee;
+
+import java.util.List;
 
 import javax.inject.Inject;
 

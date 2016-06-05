@@ -23,6 +23,10 @@
    <to-view-id>/addHourly.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
+   <from-outcome>logout</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
    <from-outcome>addFlat</from-outcome>
    <to-view-id>/addFlat.xhtml</to-view-id>
   </navigation-case>
@@ -61,6 +65,20 @@
   <navigation-case>
    <from-outcome>home</from-outcome>
    <to-view-id>/adminPage.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+  <navigation-rule>
+  <from-view-id>/HREuserPage.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>logout</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+  <navigation-rule>
+  <from-view-id>/FLEuserPage.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>logout</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <application/>
