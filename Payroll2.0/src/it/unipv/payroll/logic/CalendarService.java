@@ -97,7 +97,6 @@ private Calendar calendar;
 			calendar.add(Calendar.DATE, -1);
 		}
 		
-		System.out.println(working_days.toString());
 		
 		return working_days;
 	}

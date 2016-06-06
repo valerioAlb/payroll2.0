@@ -227,9 +227,9 @@ public class AdminControllerTest extends ArquillianTest{
 		
 		int id3 = adminController.add("flat", "user3", "Rosa", "", "132356768765342", union2, 0, 1500, 0.2, "user3");
 			
-		TimeCard timeCard1 = new TimeCard(new Date(2016-1900,05-1,27), 8);
-		TimeCard timeCard2 = new TimeCard(new Date(2016-1900,05-1,30), 5);
-		TimeCard timeCard3 = new TimeCard(new Date(2016-1900,05-1,31), 10);
+		TimeCard timeCard1 = new TimeCard(new Date(2016-1900,06-1,3), 8);
+		TimeCard timeCard2 = new TimeCard(new Date(2016-1900,06-1,3), 5);
+		TimeCard timeCard3 = new TimeCard(new Date(2016-1900,06-1,3), 10);
 		
 		HourlyEmployee employee1 = adminController.findHourly(id1);
 		HourlyEmployee employee2 = adminController.findHourly(id2);
@@ -242,9 +242,9 @@ public class AdminControllerTest extends ArquillianTest{
 		timeCardDao.add(timeCard2);
 		timeCardDao.add(timeCard3);
 		
-		TimeCard timeCard4 = new TimeCard(new Date(2016 -1900,05-1,27), 8);
-		TimeCard timeCard5 = new TimeCard(new Date(2016 -1900,05-1,30), 5);
-		TimeCard timeCard6 = new TimeCard(new Date(2016 -1900,05-1,31), 10);
+		TimeCard timeCard4 = new TimeCard(new Date(2016 -1900,6-1,3), 8);
+		TimeCard timeCard5 = new TimeCard(new Date(2016 -1900,6-1,3), 5);
+		TimeCard timeCard6 = new TimeCard(new Date(2016 -1900,6-1,3), 10);
 		
 		timeCard4.setHourly_employee(employee2);
 		timeCard5.setHourly_employee(employee2);
@@ -254,8 +254,8 @@ public class AdminControllerTest extends ArquillianTest{
 		timeCardDao.add(timeCard5);
 		timeCardDao.add(timeCard6);
 		
-		Date date1 = new Date(2016 -1900,05-1,30);
-		Date date2 = new Date(2016 -1900,05-1,31);
+		Date date1 = new Date(2016 -1900,6-1,3);
+		Date date2 = new Date(2016 -1900,6-1,3);
 		
 		FlatSalaryEmployee employee3 = adminController.findFlat(id3);
 		
@@ -272,15 +272,15 @@ public class AdminControllerTest extends ArquillianTest{
 		salesRDao.add(receipt3);
 		
 		
-		adminController.postServiceCharge(id1, 30, new java.util.Date(2016, 5, 27), union1);
-		adminController.postServiceCharge(id1, 24, new java.util.Date(2016, 5, 30), union1);
+		adminController.postServiceCharge(id1, 30, new java.util.Date(2016, 6, 3), union1);
+		adminController.postServiceCharge(id1, 24, new java.util.Date(2016, 6, 3), union1);
 		
-		adminController.postServiceCharge(id3, 40, new java.util.Date(2016, 5, 31), union2);
+		adminController.postServiceCharge(id3, 40, new java.util.Date(2016, 6, 3), union2);
 		
 		adminController.runPayroll();
 		
-		float total1 = 186;
-		float total2 = 480;
+		float total1 = 144;
+		float total2 = 168;
 		
 		boolean test = true;
 		
@@ -290,6 +290,7 @@ public class AdminControllerTest extends ArquillianTest{
 			
 			if (payment.getPayType().equals("Salary") && (payment.getEmployee().getEmpId() == employee1.getEmpId())) {
 				if (total1 != payment.getPayAmount()) {
+					System.out.println("The payment is: "+payment.getPayAmount());
 					test = false;
 				}
 			}
@@ -297,6 +298,7 @@ public class AdminControllerTest extends ArquillianTest{
 			if (payment.getPayType().equals("Salary") && (payment.getEmployee().getEmpId() == employee2.getEmpId())) {
 				
 				if (total2 != payment.getPayAmount()) {
+					System.out.println("The payment is: "+payment.getPayAmount());
 					test = false;
 				}
 			}

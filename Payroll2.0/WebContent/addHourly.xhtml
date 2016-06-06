@@ -6,19 +6,20 @@
       xmlns:p="http://primefaces.org/ui">
 
 	<h:head>
-	
+		<link href="style.css" rel="stylesheet" media="screen"/>
 	</h:head>
 	
-	<h:body style="color: black; background-color: grey">
+	<h:body>
 
-	<h1 style="color:yellow">Add Hourly Employee</h1>
-	
 	<h:form>
 		<p:commandButton value = "Home" label="home" action="home"/>
 	</h:form>
+	<h1>Add Hourly Employee</h1>
 	
-		<h:form id="hreForm" style="color:yellow">
-		
+	
+	
+		<h:form id="hreForm">
+			<div id="panel">
 			<p:growl id="growl" showDetail="true" sticky="true" /> 
 			
 			<h:panelGrid columns="2" cellpadding="5">
@@ -34,7 +35,7 @@
 		        <p:outputLabel for="iban" value="Iban: " />
 		        <p:inputMask id="iban" value="#{employee.IBAN}" />
 							       		        
-		        <p:outputLabel for="salary" value="Hourly Salary: " />
+		        <p:outputLabel for="salary" value="Hourly Salary: (&euro;)" />
 		        <p:inputMask required = "true" id="salary" value="#{employee.hourlySalary}" />
 			        
 		        <p:outputLabel for="union" value="Union Name: " />
@@ -46,6 +47,7 @@
 		        <p:commandButton value="Reset" type="reset" />
 			    <p:commandButton  action="#{employee.addEmployee()}" value="Submit" update="growl"/>
 			 </h:panelGrid>
+			 </div>
 		</h:form>
 	 
 	</h:body>

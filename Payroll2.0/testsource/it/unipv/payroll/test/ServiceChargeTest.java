@@ -45,7 +45,7 @@ public class ServiceChargeTest extends ArquillianTest{
 	@Test
 	public void testUnion(){
 		
-		UnionTable union1 = new UnionTable("CappellaSPA", 0.5);
+		UnionTable union1 = new UnionTable("DetroitSPA", 0.5);
 		UnionTable union2 = new UnionTable("FifolaSPA", 0.2);
 		
 		u_dao.add(union1);
@@ -86,7 +86,7 @@ public class ServiceChargeTest extends ArquillianTest{
 	@Test
 	public void testServiceCharge(){
 		
-		UnionTable union1 = new UnionTable("CappellaSPA", 0.5);
+		UnionTable union1 = new UnionTable("DetroitSPA", 0.5);
 		UnionTable union2 = new UnionTable("FifolaSPA", 0.2);
 		
 		u_dao.add(union1);

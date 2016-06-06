@@ -33,15 +33,15 @@ public class DeleteEmployeeTest extends ArquillianTest {
 	@Test
 	public void testDeleteEmployee(){
 		
-		Employee hourlyEmployee1 = new HourlyEmployee("Rocco","Papaleo",12);
+		Employee hourlyEmployee1 = new HourlyEmployee("Oscar","Vaughn",12);
 		
-		Employee hourlyEmployee2 = new HourlyEmployee("Magikarp","Pokè",2);
+		Employee hourlyEmployee2 = new HourlyEmployee("Serena","Angel",2);
 		
-		Employee hourlyEmployee3 = new HourlyEmployee("Tavernello","Cartoncino",16);
+		Employee hourlyEmployee3 = new HourlyEmployee("Jupiter","Lay",16);
 		
-		Employee flatEmployee1 = new FlatSalaryEmployee("Fra","Cappella",12,0.2);
+		Employee flatEmployee1 = new FlatSalaryEmployee("Alex","Moore",12,0.2);
 		
-		Employee flatEmployee2 = new FlatSalaryEmployee("Dado","Papaleo",2,0.4);
+		Employee flatEmployee2 = new FlatSalaryEmployee("Dado","Silver",2,0.4);
 		
 		e_dao.add(hourlyEmployee1);
 		e_dao.add(hourlyEmployee2);

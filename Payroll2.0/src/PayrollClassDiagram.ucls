@@ -3,294 +3,294 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="it.unipv.payroll.model.Employee" project="Payroll2.0" 
     file="/Payroll2.0/src/it/unipv/payroll/model/Employee.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="663" y="373"/>    
+    <position height="-1" width="-1" x="663" y="600"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="2" language="java" name="it.unipv.payroll.model.FlatSalaryEmployee" project="Payroll2.0" 
     file="/Payroll2.0/src/it/unipv/payroll/model/FlatSalaryEmployee.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="547" y="494"/>    
+    <position height="-1" width="-1" x="428" y="378"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="3" language="java" name="it.unipv.payroll.model.HourlyEmployee" project="Payroll2.0" 
     file="/Payroll2.0/src/it/unipv/payroll/model/HourlyEmployee.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="790" y="492"/>    
+    <position height="-1" width="-1" x="896" y="367"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="4" language="java" name="it.unipv.payroll.model.TimeCard" project="Payroll2.0" 
     file="/Payroll2.0/src/it/unipv/payroll/model/TimeCard.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="908" y="639"/>    
+    <position height="-1" width="-1" x="957" y="672"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="5" language="java" name="it.unipv.payroll.model.SalesReceipt" project="Payroll2.0" 
     file="/Payroll2.0/src/it/unipv/payroll/model/SalesReceipt.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="459" y="643"/>    
+    <position height="-1" width="-1" x="428" y="690"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="6" language="java" name="it.unipv.payroll.model.UnionTable" project="Payroll2.0" 
     file="/Payroll2.0/src/it/unipv/payroll/model/UnionTable.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="662" y="238"/>    
+    <position height="-1" width="-1" x="664" y="306"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="7" language="java" name="it.unipv.payroll.model.ServiceCharge" project="Payroll2.0" 
     file="/Payroll2.0/src/it/unipv/payroll/model/ServiceCharge.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="663" y="87"/>    
+    <position height="-1" width="-1" x="657" y="65"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="8" language="java" name="it.unipv.payroll.logic.PayFlat" project="Payroll2.0" 
     file="/Payroll2.0/src/it/unipv/payroll/logic/PayFlat.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="245" y="416"/>    
+    <position height="-1" width="-1" x="136" y="412"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="9" language="java" name="it.unipv.payroll.logic.PayHourly" project="Payroll2.0" 
     file="/Payroll2.0/src/it/unipv/payroll/logic/PayHourly.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1133" y="413"/>    
+    <position height="-1" width="-1" x="1128" y="412"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="10" language="java" name="it.unipv.payroll.model.Payment" project="Payroll2.0" 
     file="/Payroll2.0/src/it/unipv/payroll/model/Payment.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="667" y="771"/>    
+    <position height="-1" width="-1" x="649" y="958"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <association id="11">    
-    <bendpoint x="971" y="204"/>    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="12" name="charges">        
-        <position height="0" width="0" x="0" y="0"/>      
+    <end type="SOURCE" refId="6" navigable="true">      
+      <attribute id="12" name="employees">        
+        <position height="0" width="0" x="0" y="116"/>      
       </attribute>      
       <multiplicity id="13" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="14">    
-    <end type="SOURCE" refId="6" navigable="true">      
-      <attribute id="15" name="employees">        
-        <position height="0" width="0" x="0" y="-111"/>      
-      </attribute>      
-      <multiplicity id="16" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="-111"/>      
+        <position height="0" width="0" x="0" y="116"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true">      
+      <attribute id="14" name="union">        
+        <position height="0" width="0" x="2" y="68"/>      
+      </attribute>      
+      <multiplicity id="15" minimum="0" maximum="1">        
+        <position height="0" width="0" x="2" y="68"/>      
+      </multiplicity>    
+    </end>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="16">    
+    <end type="SOURCE" refId="7" navigable="true">      
       <attribute id="17" name="union">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="2" y="68"/>      
       </attribute>      
       <multiplicity id="18" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="2" y="68"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true">      
+      <attribute id="19" name="charges">        
+        <position height="0" width="0" x="-6" y="-22"/>      
+      </attribute>      
+      <multiplicity id="20" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-6" y="-22"/>      
       </multiplicity>    
     </end>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="19">    
-    <bendpoint x="1131" y="772"/>    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="20" name="payment">        
-        <position height="0" width="0" x="-120" y="406"/>      
-      </attribute>      
-      <multiplicity id="21" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-120" y="406"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="22">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="23" name="employees">        
-        <position height="0" width="0" x="-77" y="-209"/>      
-      </attribute>      
-      <multiplicity id="24" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-77" y="-209"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="25">    
-    <end type="SOURCE" refId="3" navigable="true">      
-      <attribute id="26" name="timeCards">        
-        <position height="0" width="0" x="-225" y="-65"/>      
-      </attribute>      
-      <multiplicity id="27" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-225" y="-65"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true">      
-      <attribute id="28" name="hourly_employee">        
-        <position height="0" width="0" x="-77" y="-209"/>      
-      </attribute>      
-      <multiplicity id="29" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-77" y="-209"/>      
-      </multiplicity>    
-    </end>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="30">    
-    <end type="SOURCE" refId="10" navigable="true">      
-      <attribute id="31" name="employee">        
-        <position height="0" width="0" x="0" y="-111"/>      
-      </attribute>      
-      <multiplicity id="32" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="-111"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true">      
-      <attribute id="33" name="payments">        
-        <position height="0" width="0" x="-120" y="406"/>      
-      </attribute>      
-      <multiplicity id="34" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-120" y="406"/>      
-      </multiplicity>    
-    </end>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="35">    
-    <bendpoint x="391" y="554"/>    
+  <association id="21">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="36" name="receipts">        
-        <position height="0" width="0" x="223" y="-79"/>      
+      <attribute id="22" name="employees">        
+        <position height="0" width="0" x="-47" y="-344"/>      
       </attribute>      
-      <multiplicity id="37" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="223" y="-79"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="38">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="39" name="employees">        
-        <position height="0" width="0" x="72" y="-228"/>      
-      </attribute>      
-      <multiplicity id="40" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="72" y="-228"/>      
+      <multiplicity id="23" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-47" y="-344"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="41">    
-    <end type="SOURCE" refId="7" navigable="true">      
-      <attribute id="42" name="union">        
-        <position height="0" width="0" x="0" y="0"/>      
+  <association id="24">    
+    <end type="SOURCE" refId="10" navigable="true">      
+      <attribute id="25" name="employee">        
+        <position height="0" width="0" x="0" y="116"/>      
       </attribute>      
-      <multiplicity id="43" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="26" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="116"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true">      
-      <attribute id="44" name="charges">        
-        <position height="0" width="0" x="0" y="0"/>      
+    <end type="TARGET" refId="1" navigable="true">      
+      <attribute id="27" name="payments">        
+        <position height="0" width="0" x="-138" y="593"/>      
       </attribute>      
-      <multiplicity id="45" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="28" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-138" y="593"/>      
       </multiplicity>    
     </end>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="46">    
+  <generalization id="29">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <association id="47">    
-    <bendpoint x="969" y="565"/>    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="48" name="timeCards">        
-        <position height="0" width="0" x="-225" y="-65"/>      
+  <association id="30">    
+    <end type="SOURCE" refId="5" navigable="true">      
+      <attribute id="31" name="flat_employee">        
+        <position height="0" width="0" x="-47" y="-344"/>      
       </attribute>      
-      <multiplicity id="49" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-225" y="-65"/>      
+      <multiplicity id="32" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-47" y="-344"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true">      
+      <attribute id="33" name="receipts">        
+        <position height="0" width="0" x="192" y="-32"/>      
+      </attribute>      
+      <multiplicity id="34" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="192" y="-32"/>      
+      </multiplicity>    
+    </end>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="3" navigable="true">      
+      <attribute id="36" name="timeCards">        
+        <position height="0" width="0" x="-176" y="-32"/>      
+      </attribute>      
+      <multiplicity id="37" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-176" y="-32"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true">      
+      <attribute id="38" name="hourly_employee">        
+        <position height="0" width="0" x="29" y="-334"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="1">        
+        <position height="0" width="0" x="29" y="-334"/>      
+      </multiplicity>    
+    </end>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <bendpoint x="386" y="553"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="41" name="receipts">        
+        <position height="0" width="0" x="192" y="-32"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="192" y="-32"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <bendpoint x="964" y="564"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="44" name="timeCards">        
+        <position height="0" width="0" x="-176" y="-32"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-176" y="-32"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="50">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <association id="51">    
-    <bendpoint x="241" y="772"/>    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="52" name="payment">        
-        <position height="0" width="0" x="-120" y="406"/>      
+  <association id="46">    
+    <bendpoint x="1126" y="771"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="47" name="payment">        
+        <position height="0" width="0" x="-138" y="593"/>      
       </attribute>      
-      <multiplicity id="53" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-120" y="406"/>      
+      <multiplicity id="48" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-138" y="593"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="54">    
-    <end type="SOURCE" refId="5" navigable="true">      
-      <attribute id="55" name="flat_employee">        
-        <position height="0" width="0" x="72" y="-228"/>      
+  <association id="49">    
+    <bendpoint x="966" y="203"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="50" name="charges">        
+        <position height="0" width="0" x="-6" y="-22"/>      
       </attribute>      
-      <multiplicity id="56" minimum="0" maximum="1">        
-        <position height="0" width="0" x="72" y="-228"/>      
+      <multiplicity id="51" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-6" y="-22"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true">      
-      <attribute id="57" name="receipts">        
-        <position height="0" width="0" x="223" y="-79"/>      
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="52">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="53">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="54" name="employees">        
+        <position height="0" width="0" x="29" y="-334"/>      
       </attribute>      
-      <multiplicity id="58" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="223" y="-79"/>      
+      <multiplicity id="55" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="29" y="-334"/>      
       </multiplicity>    
     </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="56">    
+    <bendpoint x="236" y="771"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="57" name="payment">        
+        <position height="0" width="0" x="-138" y="593"/>      
+      </attribute>      
+      <multiplicity id="58" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-138" y="593"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="59">    
-    <bendpoint x="393" y="198"/>    
+    <bendpoint x="388" y="197"/>    
     <end type="SOURCE" refId="8" navigable="false">      
       <attribute id="60" name="charges">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-6" y="-22"/>      
       </attribute>      
       <multiplicity id="61" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-6" y="-22"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
@@ -298,7 +298,7 @@
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
-    <attributes public="false" package="false" protected="false" private="false" static="true"/>    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
     <operations public="false" package="false" protected="false" private="false" static="true"/>  
   </classifier-display>  
   <association-display labels="true" multiplicity="true"/>

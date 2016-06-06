@@ -68,8 +68,8 @@ public class FlatSalaryTest extends ArquillianTest{
 	public void testSalesReceipts(){
 		
 		FlatSalaryEmployee flatEmployee1 = new FlatSalaryEmployee("Marco","Tranello",12,0.2);
-		flatEmployee1.setIBAN("MAMMAPUTTANA");
-		FlatSalaryEmployee flatEmployee2 = new FlatSalaryEmployee("Trivella","Perforante",2,0.4);
+		flatEmployee1.setIBAN("23456789034567");
+		FlatSalaryEmployee flatEmployee2 = new FlatSalaryEmployee("Trivella","Lightouch",2,0.4);
 		
 		FlatSalaryEmployee flatEmployee3 = new FlatSalaryEmployee("Mazinga","Z",16,0.1);
 		

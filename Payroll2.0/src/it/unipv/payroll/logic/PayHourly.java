@@ -50,7 +50,7 @@ public class PayHourly{
 	@SuppressWarnings("deprecation")
 	public void pay() {
 		
-		//if (calendarService.isFriday()) {
+		if (calendarService.isFriday()) {
 			
 
 		Date dateToday = calendarService.getToday();
@@ -72,12 +72,10 @@ public class PayHourly{
 			
 			int numToday = dateToday.getYear()*10000+dateToday.getMonth()*100+dateToday.getDay();
 			
-			System.out.println("LAST PAYED: "+numLast+" TODAY: "+numToday);
 		
 			if (numToday > numLast) {
 				
 				total = 0; 
-				System.out.println("Id dello stronzo : "+employee.getEmpId());
 				timeCards = t_dao.findTimeCardsByEmployee(employee.getEmpId());
 				
 				for (TimeCard card : timeCards) {
@@ -145,7 +143,7 @@ public class PayHourly{
 		}
 	
 			
-		//}
+		}
 		
 			
 		

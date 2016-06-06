@@ -7,15 +7,19 @@
 
 	<h:head>
 	
+	 	<link href="style.css" rel="stylesheet" media="screen"/>
+	
 	</h:head>
 	
-	<h:body style="color: black; background-color: grey">
+	<h:body>
 
-	<h1 style="color:yellow">Login</h1>
+	<h1>Login</h1>
+
+	
 	
 	<h:form id="form">
-			
-		<p:panel id="panel" header="New User">
+		<div id="panel">
+		<p:panel id="panel1">
 	 
 	        <!-- <p:messages id="msgs" /> -->
 	        <p:growl id="msgs" showDetail="true" sticky="true" /> 
@@ -23,7 +27,7 @@
 	        <h:panelGrid columns="3" cellpadding="5">
 	            <p:outputLabel for="EmpId" value="Employee ID:" />
 	            <p:inputText id="EmpId" value="#{loginb.empId}" required="true" label="EmpId">
-	                <f:validateLength minimum="2" />
+	                <f:validateLength minimum="1" />
 	            </p:inputText>
 	            <p:message for="EmpId" display="icon" />
 	 
@@ -36,11 +40,11 @@
 	 
 	        </h:panelGrid>
 	 
-	        <p:commandButton value="Login" update="panel" action="#{loginb.validateForm()}" actionListener="#{loginb.validateForm()}" icon="ui-icon-check" >
+	        <p:commandButton value="Login" update="panel1" action="#{loginb.validateForm()}" actionListener="#{loginb.validateForm()}" icon="ui-icon-check" >
 	        	<f:attribute name="empID" value="#{loginb.empId}"/>
 	        </p:commandButton>
 	    </p:panel>
-			
+		</div>	
 	</h:form>
 	
 	</h:body>

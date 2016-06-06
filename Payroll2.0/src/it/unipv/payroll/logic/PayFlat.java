@@ -57,8 +57,8 @@ public class PayFlat{
 		List<Date> working_days = calendarService.lastMonthList();
 		List<Date> lastTwoWeeks = calendarService.last2WeeksList();
 		
-		//if (calendarService.d1ChangeMounth() || (calendarService.isFriday() && calendarService.d3ChangeMounth())) {
-		if (true) {
+		if (calendarService.d1ChangeMounth() || (calendarService.isFriday() && calendarService.d3ChangeMounth())) {
+		//if (true) {
 			
 			
 			for (FlatSalaryEmployee employee : employees) {
@@ -75,7 +75,6 @@ public class PayFlat{
 				
 				int numToday = dateToday.getYear()*10000+dateToday.getMonth()*100+dateToday.getDay();
 				
-				System.out.println("LAST PAYED: "+numLast+" TODAY: "+numToday);
 			
 				if (numToday > numLast) {
 					
@@ -89,13 +88,10 @@ public class PayFlat{
 						
 						String initDate = working_days.get(working_days.size()-1).toString();
 						String finDate = dateToday.toString();
-						System.out.println("LE due date: "+ initDate + "    "+ finDate);
 						
 						charges = s_dao.findByDate(initDate, finDate);
 						
 						for (ServiceCharge charge : charges) {
-							System.out.println("charge amount "+charge.getAmount());
-							System.out.println("id cazzo "+charge.getEmpId());
 							if (charge.getEmpId() == employee.getEmpId()) {
 								total-=charge.getAmount();
 							}
@@ -113,8 +109,8 @@ public class PayFlat{
 			
 		}
 		
-		//if (calendarService.isFriday() && calendarService.isWeekNumberPair()) {
-		if(true){
+		if (calendarService.isFriday() && calendarService.isWeekNumberEven()) {
+		//if(true){
 			
 			for (FlatSalaryEmployee employee : employees) {
 				
@@ -130,7 +126,6 @@ public class PayFlat{
 				
 				int numToday = dateToday.getYear()*10000+dateToday.getMonth()*100+dateToday.getDay();
 				
-				System.out.println("LAST PAYED: "+numLast+" TODAY: "+numToday);
 			
 				if (numToday > numLast) {
 					
@@ -176,7 +171,7 @@ public class PayFlat{
 			paymethod = "pickup";
 		}
 		payment.setPayMethod(paymethod);
-		System.out.println("TOTALEEEEE "+total);
+		System.out.println("TOTALE "+total);
 		
 		paymentID = p_dao.update(payment);
 		

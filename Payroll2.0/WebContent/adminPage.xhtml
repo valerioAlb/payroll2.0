@@ -6,25 +6,27 @@
       xmlns:p="http://primefaces.org/ui">
 
 	<h:head>
-	
+	<link href="style.css" rel="stylesheet" media="screen"/>
 	</h:head>
 	
-	<h:body style="color: black; background-color: grey">
+	<h:body>
 
-	<h1 style="color:yellow">Administrator Page</h1>
-	
 	 <h:form>
 		<p:commandButton value = "Logout" label="logout" action="logout" />
 	</h:form>
+	<h1>Admin Page</h1>
+	
+
+	
 	
 	<br />
 	<br />
 	
 	<h:form>
-	
-	    <p:panelGrid style="margin:auto;width:30%">
-	    	<h2 style="color:red">RUN PAYROLL FOR TODAY</h2>  
-	    	<p:commandButton action="#{employee.runThePayrollForToday()}" icon="ui-icon-search" value="RUN"/>
+	<p:growl id="growl" showDetail="true" sticky="true" />  
+	    <p:panelGrid>
+	    	<h2>RUN PAYROLL FOR TODAY</h2>  
+	    	<p:commandButton action="#{employee.runThePayrollForToday()}" icon="ui-icon-search" value="RUN" update="growl"/>
 		</p:panelGrid>
 	    
 	</h:form> 
@@ -62,8 +64,8 @@
 	        </p:column>
 	        
 	        <f:facet name="footer">
-				
-				<p:commandButton process="singleDT" action="#{employee.deleteEmployee()}" update=":form:#{employee.init()}" icon="ui-icon-trash-1" value="Delete" />
+				<p:growl id="growl" showDetail="true" sticky="true" /> 
+				<p:commandButton process="singleDT" action="#{employee.deleteEmployee()}" update=":form:#{employee.init()},growl" icon="ui-icon-trash-1" value="Delete" />
 				<p:commandButton icon="ui-icon-trash-1" value="Modify" label="modify" action="#{employee.openModifyPage()}"/>
         	</f:facet>
 	    </p:dataTable>
@@ -73,8 +75,8 @@
 	
 	<h:form>
 	
-	    <p:panelGrid style="margin:auto;width:30%">
-	    	<h2 style="color:yellow">Update Table</h2>  
+	    <p:panelGrid>
+	    	<h2>Update Table</h2>  
 	    	<p:commandButton update=":form:#{employee.init()}" icon="ui-icon-search" value="Update"/>
 		</p:panelGrid>
 	    
@@ -85,8 +87,8 @@
 	
 	<h:form>
 	
-	    <p:panelGrid style="margin:auto;width:30%">
-	    	<h2 style="color:yellow">Add a new employee</h2>  
+	    <p:panelGrid>
+	    	<h2 >Add a new employee</h2>  
 	    	
 			<p:commandButton icon="ui-icon-trash-1" value="Add Hourly" label="addHourly" action="addHourly" actionListener="#{employee.setHourly()}"   />
 			<p:commandButton icon="ui-icon-trash-1" value="Add Flat" label="addFlat" action="addFlat" actionListener="#{employee.setFlat()}"   />	    
@@ -98,7 +100,7 @@
 	<br />
 	<br />
 	
-	<h2 style="color:yellow">Post Union Service Charge</h2>
+	<h2 >Post Union Service Charge</h2>
 	<h:form>
 	
 	<p:growl id="growl" showDetail="true" sticky="true" />  
@@ -108,7 +110,7 @@
         <p:outputLabel for="empID" value="Employee ID:  " />
         <p:inputMask required = "true" id="empID" value="#{employee.empID}" />
         
-        <p:outputLabel for="amount" value="Amount: " />
+        <p:outputLabel for="amount" value="Amount: (&euro;)" />
         <p:inputMask required = "true" id="amount" value="#{employee.amount}" />
         
         <p:outputLabel for="restricted" value="Date: " />

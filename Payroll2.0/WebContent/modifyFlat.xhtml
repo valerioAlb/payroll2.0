@@ -6,19 +6,20 @@
       xmlns:p="http://primefaces.org/ui">
 
 	<h:head>
-
+		<link href="style.css" rel="stylesheet" media="screen"/>
 	</h:head>
 	
-	<h:body style="background-color: grey">
+	<h:body>
 
-	<h1 style="color:yellow"> Modify Flat Employee </h1>
-	
 	<h:form>
 		<p:commandButton value = "Home" label="home" action="home" />
 	</h:form>
+	<h1> Modify Flat Employee </h1>
 	
-		<h:form id="fleModForm" style="color:yellow">
-		
+
+	
+		<h:form id="fleModForm" >
+			<div id="panel">
 				<p:growl id="growl" showDetail="true" sticky="true" /> 
 		
 			    <h:panelGrid columns="2" cellpadding="5">
@@ -49,6 +50,7 @@
 			        <p:commandButton value="Reset" type="reset" />
 			        <p:commandButton action="#{employee.modifyEmployee()}" value="Submit" update="growl"/>
 			    </h:panelGrid>
+			    </div>
 			 </h:form>
 	 
 	</h:body>

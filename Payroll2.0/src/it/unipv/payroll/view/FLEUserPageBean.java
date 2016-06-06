@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.ejb.Stateless;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -53,7 +54,6 @@ public class FLEUserPageBean implements Serializable{
 		this.charges=userController.findChargesByEmpId(empID);
 		this.receipts=userController.findReceiptsByEmpID(empID);
 		this.todayDate = calendarService.getFormattedToday();
-		System.out.println("DATE: "+todayDate);
 		System.out.println("USER NAME: "+flatSalaryEmployee.getName());
 		
 		 
@@ -73,7 +73,13 @@ public class FLEUserPageBean implements Serializable{
 	}
 	
 	public void postSalesReceipt(){
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		
 		userController.postReceipt(flatSalaryEmployee,amount,date);
+		
+		String result = "Sales receipt posted.";
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Done ",  result) );
 	}
 
 	public FlatSalaryEmployee getFlatSalaryEmployee() {

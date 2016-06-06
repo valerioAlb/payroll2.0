@@ -26,7 +26,7 @@ public class EmployeeDao {
 	}
 	
 	public List<Employee> findAll() {
-		List<Employee> employees = em.createQuery("select p from Employee p", Employee.class).getResultList();
+		List<Employee> employees = em.createQuery("select p from Employee p where name <> 'ADMIN'", Employee.class).getResultList();
 		return employees;
 	}
 	

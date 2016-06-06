@@ -210,9 +210,10 @@ public class AdministratorBean implements Serializable{
 		
 		FacesContext context = FacesContext.getCurrentInstance();
 		
+		result = "User "+selectedEmployee.getName()+" "+selectedEmployee.getSurname()+" correctly deletd";
+		
 		e_controller.deleteEmployee(selectedEmployee.getEmpId());
 		
-		result = "User "+name+" "+surname+" correctly deletd";
 		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Done! ",  result) );
 		
 	}
@@ -220,13 +221,12 @@ public class AdministratorBean implements Serializable{
 	public String openModifyPage(){
 		
 		return selectedEmployee.getEmpType();
-//		e_controller.modifyEployee(empID,postalAddress,IBAN,union,hourlySalary,fixedSalary,commissionRate);
 		
 	}
 	
 	public void modifyEmployee(){
 		
-		System.out.println("MODIFIING "+selectedEmployee.getEmpType());
+		System.out.println("MODIFING "+selectedEmployee.getEmpType());
 		UnionTable union = null;
 		FacesContext context = FacesContext.getCurrentInstance();
 		
@@ -237,6 +237,7 @@ public class AdministratorBean implements Serializable{
 			if(union==null){
 				result = "Wrong Union Name Typed";
 				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"User not modified ",  result) );
+				System.out.println("Resetting bean");
 				resetBean();
 				return;
 			}
@@ -250,13 +251,16 @@ public class AdministratorBean implements Serializable{
 			e_controller.modifyEployee(selectedFlatEmployee,password);
 		}
 		
-		result = "User "+name+" "+surname+" correctly modified";
+		result = "User "+selectedEmployee.getName()+" "+selectedEmployee.getSurname()+" correctly modified";
 		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Completed ",  result) );
 		resetBean();
 	}
 	
 	public void runThePayrollForToday(){
 		e_controller.runPayroll();
+		result = "";
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Payroll correctly executed",  result) );
 	}
 	
 	public void setHourly(){
@@ -356,10 +360,6 @@ public class AdministratorBean implements Serializable{
 	public void setTempType(String tempType) {
 		this.tempType = tempType;
 		System.out.println(tempType);
-	}
-	
-	public void Test(){
-		System.out.println("ALLAAAAHHHHH");
 	}
 
 	public String getDialogPath() {

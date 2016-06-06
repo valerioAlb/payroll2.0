@@ -7,15 +7,17 @@
 
 	<h:head>
 		#{FLEuserbean.init()}
+		<link href="style.css" rel="stylesheet" media="screen"/>
 	</h:head>
 	
-	<h:body style="color: black; background-color: grey">
+	<h:body >
 
-	<h1 style="color:yellow">Flat User Reserved Area</h1>
-	
 	 <h:form>
 		<p:commandButton value = "Logout" label="logout" action="logout" />
 	</h:form>
+	<h1 >Flat User Reserved Area</h1>
+	
+
 	
 	<h1>Welcome #{FLEuserbean.flatSalaryEmployee.name}</h1>
 	
@@ -37,7 +39,7 @@
 	    <td>#{FLEuserbean.flatSalaryEmployee.commissionRate}</td>
 	  </tr>
 	  <tr>
-	  	<th align="left">Fixed Salary:</th>
+	  	<th align="left">Fixed Salary: (&euro;)</th>
 	    <td>#{FLEuserbean.flatSalaryEmployee.fixedSalary}</td>
 	  </tr>
 	  <tr>
@@ -56,17 +58,18 @@
 	<br />
 	<br />
 	
-	<h2 style="color:yellow"> Post a new Sales Receipt</h2>	
+	<h2> Post a new Sales Receipt</h2>	
 	<h:form>
+	<p:growl id="growl" showDetail="true" sticky="true" />  
     <h:panelGrid columns="2" cellpadding="5">
         
         <p:outputLabel for="restricted" value="Date: " />
-        <p:calendar id="restricted" value="#{FLEuserbean.date}" maxdate="#{FLEuserbean.todayDate}" />
+        <p:calendar id="restricted" required="true" value="#{FLEuserbean.date}" maxdate="#{FLEuserbean.todayDate}" />
         
-        <p:outputLabel for="amount" value="Amount: " />
+        <p:outputLabel for="amount" value="Amount: (&euro;)" />
         <p:inputMask required = "true" id="amount" value="#{FLEuserbean.amount}" />
         
-        <p:commandButton icon="ui-icon-trash-1" value="Post a Sales Receipt" label="PostReceipt" action="#{FLEuserbean.postSalesReceipt()}" />
+        <p:commandButton icon="ui-icon-trash-1" value="Post a Sales Receipt" label="PostReceipt" action="#{FLEuserbean.postSalesReceipt()}" update="growl"/>
         
      </h:panelGrid>
      </h:form>
@@ -74,7 +77,7 @@
     <br />
 	<br />
 	
-	<h2 style="color:yellow"> Check Your History</h2>	
+	<h2> Check Your History</h2>	
 	
 	<br />
 	
@@ -86,7 +89,7 @@
 	        <h:outputText value="#{payment.date}" />
 	    </p:column>
 	 
-	    <p:column headerText="Pay Amount">
+	    <p:column headerText="Pay Amount (&euro;)">
 	        <h:outputText value="#{payment.payAmount}" />
 	    </p:column>
 	 
@@ -112,7 +115,7 @@
 		        <h:outputText value="#{salesreceipt.date}" />
 		    </p:column>
 		 
-		    <p:column headerText="Amount">
+		    <p:column headerText="Amount (&euro;)">
 		        <h:outputText value="#{salesreceipt.amount}" />
 		    </p:column>
 		    
@@ -136,7 +139,7 @@
 	        <h:outputText value="#{serviceCharge.date}" />
 	    </p:column>
 	 
-	    <p:column headerText="Amount">
+	    <p:column headerText="Amount (&euro;)">
 	        <h:outputText value="#{serviceCharge.amount}" />
 	    </p:column>
 	    

@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.ejb.Stateless;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -53,6 +54,9 @@ public class HREUserPageBean implements Serializable{
 	
 	public void postTimeCard(){
 		userController.postTimeCard(hourlyEmployee,numHours);
+		FacesContext context = FacesContext.getCurrentInstance();
+		String result = "Time Card posted";
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Done ",  result) );
 		numHours = 0;
 	}
 	

@@ -41,7 +41,7 @@ public class TimeCardTest extends ArquillianTest {
 	public void testHourlyTimeCard(){
 		
 		
-		HourlyEmployee hourlyEmployee1 = new HourlyEmployee("Dao","Puzzi",12);
+		HourlyEmployee hourlyEmployee1 = new HourlyEmployee("Dao","Ambiguous",12);
 		HourlyEmployee hourlyEmployee2 = new HourlyEmployee("Gianni","Barbabietola",32);
 		
 		e_dao.add(hourlyEmployee1);
@@ -65,7 +65,7 @@ public class TimeCardTest extends ArquillianTest {
 		
 		boolean test = false;
 		
-		if (testEmployee.getName().equals("Dao") && testEmployee.getSurname().equals("Puzzi")) {
+		if (testEmployee.getName().equals("Dao") && testEmployee.getSurname().equals("Ambiguous")) {
 			test = true;
 		}
 		

@@ -59,7 +59,7 @@ public class HourlyPaymentTest extends ArquillianTest{
 	@Test
 	public void testHourlyPayment(){
 		
-		UnionTable union1 = new UnionTable("CappellaSPA", 0.5);
+		UnionTable union1 = new UnionTable("DetroitSPA", 0.5);
 		UnionTable union2 = new UnionTable("FifolaSPA", 0.2);
 		
 		u_dao.add(union1);
